@@ -22,9 +22,10 @@ android {
     }
 
     defaultConfig {
+        // minSdkVersion 16
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.example.cabinet"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"

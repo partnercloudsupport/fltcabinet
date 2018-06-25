@@ -6,6 +6,7 @@ void main() => runApp(new MaterialApp(
     ));
 
 class PrendreRDV extends StatefulWidget {
+  static const String routeName = '/prendrerdv';
   @override
   State<StatefulWidget> createState() => PrendreRDVState();
 }
@@ -19,6 +20,7 @@ class PrendreRDVState extends State<PrendreRDV> {
         'Choisir son médecin',
         style: utils.getMyStyleGlobal(),
       ),
+      state: StepState.indexed,
       title: new Text(
         'Avec quel médecin ?',
         style: utils.getMyStyleGlobal(),
@@ -30,10 +32,12 @@ class PrendreRDVState extends State<PrendreRDV> {
         'Quand ?',
         style: utils.getMyStyleGlobal(),
       ),
+      state: StepState.indexed,
       content: new Text(
         'Choisir son créneau horaire',
         style: utils.getMyStyleGlobal(),
       ),
+      isActive: true,
     ),
     new Step(
       content: new Text(
@@ -51,6 +55,7 @@ class PrendreRDVState extends State<PrendreRDV> {
         'Résumé du rendez-vous',
         style: utils.getMyStyleGlobal(),
       ),
+      state: StepState.complete,
       title: new Text(
         'Valider',
         style: utils.getMyStyleGlobal(),
@@ -73,15 +78,17 @@ class PrendreRDVState extends State<PrendreRDV> {
           type: StepperType.vertical,
           onStepContinue: () {
             setState(() {
+              if (currentStep == 3)
+                Navigator.of(context).pushNamed('/monprofil');
               currentStep = currentStep < steps.length - 1
                   ? currentStep += 1
                   : currentStep = 3;
-              resume = resume + " -> " + currentStep.toString();
-              print(resume);
             });
           },
           onStepCancel: () {
             setState(() {
+              if (currentStep == 0)
+                Navigator.of(context).pushNamed('/monprofil');
               currentStep =
                   currentStep > 0 ? currentStep -= 1 : currentStep = 0;
             });
