@@ -52,29 +52,36 @@ class ListeMedecinState extends State<ListeMedecin> {
                                           'assets/images/medecin.png'),
                                     ),
                                   ),
-                                  new Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: new Text(
-                                      medecins[index]['nom'],
-                                      style: utils.getMyStyleGlobal(),
-                                    ),
+                                  new Padding(padding: const EdgeInsets.all(5.0),
+                                  ),
+                                  new Text(
+                                    medecins[index]['nom'],
+                                    style: utils.getMyStyleGlobal(),
                                   ),
                                   new Text(medecins[index]['prenom']),
-                                  new Icon(
-                                    Icons.add,
-                                    color: utils.colorGlobal(),
-                                  ),
                                 ],
                               ),
+                              new Padding(padding: const EdgeInsets.all(3.0),),
                               new Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  new Text("Spécialité : " + medecins[index]['specialite']),
-                                  new Text("Né(e) le : " + medecins[index]['dateNat']),
-                                  new Text('ADRESSE', style: utils.getMyStyleGlobal(),),
-                                  // new Text("Numéro : " + medecins[index]['adresse']),
-                                  new Text('CONTACT', style: utils.getMyStyleGlobal(),),
-                                  new Text("Téléphone : " ),
-                                  new Text("Email : " + medecins[index]['email']),
+                                  new Text("Spécialité : " +
+                                      medecins[index]['specialite']),
+                                  new Text("Né(e) le : " +
+                                      medecins[index]['dateNat']),
+                                  new Padding(padding: new EdgeInsets.all(2.0)),
+                                  new Text(
+                                    'ADRESSE',
+                                    style: utils.getMyStyleGlobal(),
+                                  ),
+                                  new Padding(padding: new EdgeInsets.all(2.0),),
+                                  new Text(
+                                    'CONTACT',
+                                    style: utils.getMyStyleGlobal(),
+                                  ),
+                                  new Text("Téléphone : "),
+                                  new Text(
+                                      "Email : " + medecins[index]['email']),
                                 ],
                               ),
                             ],
