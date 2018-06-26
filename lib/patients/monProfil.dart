@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../utils/utils.dart' as utils;
+import '../interface/choice.dart' as choice;
 
 class MonProfil extends StatefulWidget {
   static const String routeName = '/monprofil';
@@ -27,6 +28,10 @@ class MonProfilState extends State<MonProfil> {
     );
   }
 
+  void _selected(choice.Choice choice) {
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -36,7 +41,15 @@ class MonProfilState extends State<MonProfil> {
             new IconButton(
               icon: new Icon(Icons.menu),
               onPressed: null,
-            )
+            ),
+            new IconButton(
+              icon: new Icon(choice.choices[0].icon),
+              onPressed: _selected(choice.choices[0]),
+            ),
+            new IconButton(
+              icon: new Icon(choice.choices[1].icon),
+              onPressed: _selected(choice.choices[0]),
+            ),
           ],
           title: new Text('Mon profil'),
           backgroundColor: utils.colorGlobal(),
