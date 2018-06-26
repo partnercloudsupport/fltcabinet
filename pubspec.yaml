@@ -2,6 +2,7 @@ name: cabinet
 description: A new Flutter project.
 
 dependencies:
+  cloud_firestore:
   flutter:
     sdk: flutter
   camera:
