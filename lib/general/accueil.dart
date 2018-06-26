@@ -58,7 +58,7 @@ class AccueilState extends State<Accueil> {
       form.save();
       if (user.login == 'njaka' && user.passwd == 'arinjaka') {
         // showInSnakeBar(user.login + ' est reconnu.e ');
-        Navigator.of(context).pushNamed('/listemedecin');
+        Navigator.of(context).pushNamed('/monprofil');
       } else
         showInSnakeBar(user.login + ' n\'est pas dans la liste.');
         // Navigator.of(context).pushNamed('/inscription');
