@@ -8,7 +8,7 @@ Color colorGlobalConst() {
   return Color.fromRGBO(3, 175, 128, 1.0);
 }
 
-Color colorWhite() {
+Color getColorWhite() {
   return new Color.fromRGBO(255, 255, 255, 1.0);
 }
 
@@ -20,7 +20,7 @@ TextStyle getMyStyle() {
   return new TextStyle(
     fontFamily: 'Arial',
     fontSize: 15.0,
-    color: colorWhite(),
+    color: getColorWhite(),
   );
 }
 

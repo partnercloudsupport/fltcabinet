@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/material.dart';
 
 import '../interface/user.dart';
@@ -11,6 +12,7 @@ class Accueil extends StatefulWidget {
 }
 
 class AccueilState extends State<Accueil> {
+  final Directory tempDir = Directory.systemTemp;
   User user = new User();
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -75,6 +77,7 @@ class AccueilState extends State<Accueil> {
         key: _scaffoldKey,
         appBar: new AppBar(
           backgroundColor: utils.colorGlobal(),
+          title: new Text(tempDir.toString()),
         ),
         body: new Container(
           padding: const EdgeInsets.only(left: 15.0, right: 15.0),

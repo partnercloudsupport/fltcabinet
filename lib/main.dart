@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import './general/inscription.dart';
+import 'package:cabinet/general/inscription.dart';
 // import './general/photo.dart';
-import './general/seConnecter.dart';
-import './general/accueil.dart';
-import './patients/monProfil.dart';
-import './patients/prendreRDV.dart';
-import './medecins/listeMedecin.dart';
+import 'package:cabinet/general/seConnecter.dart';
+// import './general/accueil.dart';
+import 'package:cabinet/patients/monProfil.dart';
+import 'package:cabinet/patients/prendreRDV.dart';
+import 'package:cabinet/medecins/listeMedecin.dart';
+import 'package:cabinet/users/authentifyGoogle.dart';
 
 void main() => runApp(new AppCabinet());
 
@@ -13,7 +14,8 @@ class AppCabinet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-        home: new Accueil(),
+        // home: new Accueil(),
+        home: new AuthetifyGoogle(),
         routes: <String, WidgetBuilder>{
           ListeMedecin.routeName: (BuildContext context) => new ListeMedecin(),
           MonProfil.routeName: (BuildContext context) => new MonProfil(),
