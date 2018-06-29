@@ -1,152 +1,153 @@
-import 'dart:async';
-import 'dart:io';
 import 'package:flutter/material.dart';
+import '../utils/utils.dart' as util;
+import '../services/userService.dart';
 
-import '../interface/user.dart';
-import '../patients/monProfil.dart' as moprofil;
-import '../utils/utils.dart' as utils;
+final TextEditingController _loginController = TextEditingController();
+final TextEditingController _passwdController = TextEditingController();
 
 class Accueil extends StatefulWidget {
+  static const String routeName = '/accueil';
   @override
-  State<StatefulWidget> createState() => new AccueilState();
+  State<StatefulWidget> createState() => AccueilState();
 }
 
 class AccueilState extends State<Accueil> {
-  final Directory tempDir = Directory.systemTemp;
-  User user = new User();
-  final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  bool _autovalidate = false;
+  String text = '';
+  final int _maxLength = 10;
+  bool _showPasswordInput = true;
 
-  static const colorg = Color.fromRGBO(3, 175, 340, 1.0);
-  String login = "";
-  String passwd = "";
-  bool showPasswd = true;
-
-  Future<bool> _warnUserAboutInvalidData() async {
-    return true;
-  }
-
-  String _validatorLogin(String value) {
-    final RegExp loginExp = new RegExp(r'^[A-Za-z]+$');
-    if (value.isEmpty) {
-      return 'login obligatoire';
-    }
-    if (!loginExp.hasMatch(value)) {
-      return 'login en toute lettre';
-    }
-    return null;
-  }
-
-  String _validatorPasswd(String passwd) {
-    // final RegExp passwdReg = new RegExp(r'^[0-9]');
-    if (passwd.isEmpty) return 'mot de pass obligatoire';
-    if (passwd.length < 8) return 'mot de passe en 8 chiffres';
-    return null;
-  }
-
-  void showInSnakeBar(String value) {
-    _scaffoldKey.currentState.showSnackBar(new SnackBar(
-      content: new Text(value),
-    ));
-  }
-
-  void _handleSubmitted() {
-    final FormState form = _formKey.currentState;
-    if (!form.validate()) {
-      _autovalidate = true;
-      showInSnakeBar('IMPOSSIBLE DE VOUS CONNECTER');
-    } else {
-      form.save();
-      if (user.login == 'njaka' && user.passwd == 'arinjaka') {
-        // showInSnakeBar(user.login + ' est reconnu.e ');
-        Navigator.of(context).pushNamed('/monprofil');
-      } else
-        showInSnakeBar(user.login + ' n\'est pas dans la liste.');
-        // Navigator.of(context).pushNamed('/inscription');
-    }
+  void _showPassword() {
+    setState(() {
+      _showPasswordInput = !_showPasswordInput;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      routes: <String, WidgetBuilder>{
-        '/moprofil': (BuildContext context) => new moprofil.MonProfil(),
-      },
-      home: new Scaffold(
-        key: _scaffoldKey,
-        appBar: new AppBar(
-          backgroundColor: utils.colorGlobal(),
-          title: new Text(tempDir.toString()),
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(
+          'Cabinet RAZA',
         ),
-        body: new Container(
-          padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-          child: new Form(
-            key: _formKey,
-            autovalidate: _autovalidate,
-            onWillPop: _warnUserAboutInvalidData,
-            child: new Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                const SizedBox(
-                  height: 25.0,
-                ),
-                new TextFormField(
-                  onSaved: (String value) {
-                    user.login = value;
-                  },
-                  validator: _validatorLogin,
-                  keyboardType: TextInputType.text,
-                  decoration: new InputDecoration(
-                    // hintText: 'LOGIN',
-                    icon: new Icon(
-                      Icons.person,
-                      color: utils.colorGlobal(),
-                    ),
-                    labelText: 'LOGIN *',
-                  ),
-                ),
-                new TextFormField(
-                  onSaved: (String passwd) {
-                    setState(() {
-                      user.passwd = passwd;
-                    });
-                  },
-                  validator: _validatorPasswd,
-                  // enabled: !user.login.isNotEmpty,
-                  // keyboardType: TextInputType.number,
-                  maxLength: 8,
-                  obscureText: true,
-                  decoration: new InputDecoration(
-                      icon: new Icon(
-                        Icons.visibility,
-                        color: utils.colorGlobal(),
-                      ),
-                      labelText: 'MOT DE PASSE *'),
-                ),
-                new Center(
-                  child: new RaisedButton(
-                    color: utils.colorGlobal(),
-                    child: new Text(
-                      'SE CONNECTER',
-                      style: utils.getMyStyle(),
-                    ),
-                    onPressed: _handleSubmitted,
-                  ),
-                ),
-                new Center(
-                  child: new Padding(
-                    padding: new EdgeInsets.only(top: 10.0),
-                    child: new Text(
-                      'OU',
-                      style: new TextStyle(color: utils.colorGlobal()),
-                    ),
-                  ),
-                ),
-              ],
+        backgroundColor: util.getColorBase(),
+      ),
+      body: new Center(
+        child: new Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            new Image(
+              image: new AssetImage('assets/images/medecin.png'),
+              width: 100.0,
             ),
-          ),
+            new Padding(
+              padding: new EdgeInsets.only(
+                top: 10.0,
+              ),
+            ),
+            new Container(
+              decoration: new BoxDecoration(
+                border: new Border.all(width: 1.0, color: util.getColorBase()),
+                borderRadius: new BorderRadius.circular(22.0),
+              ),
+              width: 280.0,
+              child: new Row(
+                children: <Widget>[
+                  new Container(
+                    margin: new EdgeInsets.only(left: 10.0),
+                    width: 220.0,
+                    child: new TextField(
+                      obscureText: _showPasswordInput,
+                      decoration: new InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'MOT DE PASSE',
+                      ),
+                      controller: _passwdController,
+                      onChanged: (String value) {
+                        if (value.length <= _maxLength) {
+                          text = value;
+                        } else {
+                          _passwdController.value = new TextEditingValue(
+                              text: text,
+                              selection: new TextSelection(
+                                  baseOffset: _maxLength,
+                                  extentOffset: _maxLength,
+                                  affinity: TextAffinity.downstream,
+                                  isDirectional: false),
+                              composing:
+                                  new TextRange(start: 0, end: _maxLength));
+                          _passwdController.text = text;
+                        }
+                      },
+                    ),
+                  ),
+                  new IconButton(
+                    icon: new Icon(
+                      _showPasswordInput
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                      color: util.getColorBase(),
+                    ),
+                    onPressed: _showPassword,
+                  ),
+                ],
+              ),
+            ),
+            new Padding(
+              padding: new EdgeInsets.only(
+                top: 10.0,
+              ),
+            ),
+            new Container(
+              decoration: new BoxDecoration(
+                border: new Border.all(width: 1.0, color: util.getColorBase()),
+                borderRadius: new BorderRadius.circular(22.0),
+              ),
+              width: 280.0,
+              child: new TextField(
+                  decoration: new InputDecoration(
+                    hintText: 'LOGIN',
+                    border: InputBorder.none,
+                  ),
+                  controller: _loginController,
+                  obscureText: false,
+                  onChanged: (String newVal) {
+                    if (newVal.length <= _maxLength) {
+                      text = newVal;
+                    } else {
+                      _loginController.value = new TextEditingValue(
+                          text: text,
+                          selection: new TextSelection(
+                              baseOffset: _maxLength,
+                              extentOffset: _maxLength,
+                              affinity: TextAffinity.downstream,
+                              isDirectional: false),
+                          composing: new TextRange(start: 0, end: _maxLength));
+                      _loginController.text = text;
+                    }
+                  }),
+            ),
+            new Padding(
+              padding: new EdgeInsets.only(
+                top: 10.0,
+              ),
+            ),
+            new Container(
+              height: 45.0,
+              width: 270.0,
+              decoration: new BoxDecoration(
+                  borderRadius: new BorderRadius.circular(22.0)),
+              child: new MaterialButton(
+                color: util.getColorBase(),
+                textColor: util.getColorWhite(),
+                child: new Text('SE CONNECTER'),
+                onPressed: () {
+                  print('ID : ${_loginController.text} et ${_passwdController.text}');
+                  print(verifyUser(_loginController.text, _passwdController.text));
+                  verifyUser(_loginController.text, _passwdController.text)? Navigator.of(context).pushNamed('/monprofil') : Navigator.of(context).pushNamed('/accueil');
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );

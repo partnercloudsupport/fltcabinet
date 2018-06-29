@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+Color getColorBase(){
+  return new Color.fromRGBO(3, 175, 128, 1.0);
+}
+
 Color colorGlobal() {
   return new Color.fromRGBO(3, 175, 128, 1.0);
 }
@@ -10,10 +14,6 @@ Color colorGlobalConst() {
 
 Color getColorWhite() {
   return new Color.fromRGBO(255, 255, 255, 1.0);
-}
-
-Color colorWhiteConst() {
-  return const Color.fromRGBO(255, 255, 255, 1.0);
 }
 
 TextStyle getMyStyle() {

@@ -1,131 +1,125 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import '../interface/user.dart';
+import '../utils/utils.dart' as util;
+
+final TextEditingController _loginController = TextEditingController();
+final TextEditingController _passwdController = TextEditingController();
 
 class SeConnecter extends StatefulWidget {
   static const String routeName = '/seconnecter';
   @override
-  State<StatefulWidget> createState() => new SeConnecterState();
+  State<StatefulWidget> createState() => SeConnecterState();
 }
 
 class SeConnecterState extends State<SeConnecter> {
-  User user = new User();
-  final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  bool _autovalidate = false;
-
-  final colorG = new Color.fromRGBO(3, 175, 340, 1.0);
-  final colorB = new Color.fromRGBO(255, 255, 255, 1.0);
-  static const colorb = Color.fromRGBO(255, 255, 255, 1.0);
-  static const colorg = Color.fromRGBO(3, 175, 340, 1.0);
-  static const myStyle = TextStyle(color: colorb, fontSize: 15.0);
-  String login = "";
-  String passwd = "";
-  bool showPasswd = true;
-
-  Future<bool> _warnUserAboutInvalidData() async {
-    return true;
-  }
-
-  String _validatorLogin(String value) {
-    final RegExp loginExp = new RegExp(r'^[A-Za-z]+$');
-    if (value.isEmpty) {
-      return 'login obligatoire';
-    }
-    if (!loginExp.hasMatch(value)) {
-      return 'login en toute lettre';
-    }
-    return null;
-  }
-
-  String _validatorPasswd(String passwd) {
-    // final RegExp passwdReg = new RegExp(r'^[0-9]');
-    if (passwd.isEmpty) return 'mot de pass obligatoire';
-    if (passwd.length < 8) return 'mot de passe en 8 chiffres';
-    return null;
-  }
-
-  void showInSnakeBar(String value) {
-    _scaffoldKey.currentState.showSnackBar(new SnackBar(
-      content: new Text(value),
-    ));
-  }
-
-  void _handleSubmitted() {
-    final FormState form = _formKey.currentState;
-    if (!form.validate()){
-      _autovalidate = true;
-      showInSnakeBar('IMPOSSIBLE DE VOUS CONNECTER');
-    }
-    else
-      showInSnakeBar(user.login + ' et ' + user.passwd);
-  }
-
+  String text = ""; // empty string to carry what was there before it
+  final int _maxLength = 20;
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      key: _scaffoldKey,
       appBar: new AppBar(
-        backgroundColor: colorG,
-        title: const Text('Se connecter'),
+        title: new Text(
+          'Interne Devices',
+        ),
+        backgroundColor: util.getColorBase(),
       ),
-      body: new Container(
-        padding: const EdgeInsets.all(20.0),
-        child: new Form(
-          key: _formKey,
-          autovalidate: _autovalidate,
-          onWillPop: _warnUserAboutInvalidData,
-          child: new Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const SizedBox(
-                height: 25.0,
+      body: new Center(
+        child: new Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            new Image(
+              image: new AssetImage('assets/images/medecin.png'),
+              width: 100.0,
+            ),
+            new Padding(
+              padding: new EdgeInsets.only(
+                top: 10.0,
               ),
-              new TextFormField(
-                onSaved: (String value) {
-                  user.login = value;
-                },
-                validator: _validatorLogin,
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(
-                  // hintText: 'LOGIN',
-                  icon: const Icon(
-                    Icons.person,
-                    color: colorg,
-                  ),
-                  labelText: 'LOGIN *',
-                ),
+            ),
+            new Container(
+              decoration: new BoxDecoration(
+                border: new Border.all(width: 1.0, color: util.getColorBase()),
+                borderRadius: new BorderRadius.circular(22.0),
               ),
-              new TextFormField(
-                onSaved: (String passwd) {
-                  user.passwd = passwd;
-                },
-                validator: _validatorPasswd,
-                enabled: !user.login.isNotEmpty,
-                keyboardType: TextInputType.number,
-                maxLength: 8,
-                obscureText: true,
-                decoration: const InputDecoration(
-                    icon: const Icon(
-                      Icons.visibility,
-                      color: colorg,
+              width: 300.0,
+              child: new TextField(
+                  controller: _loginController,
+                  decoration: new InputDecoration(
+                    border: InputBorder.none,
+                    hintText: 'IDENTIFIANT',
+                    prefixIcon: new Icon(
+                      Icons.person_outline,
+                      color: util.getColorBase(),
                     ),
-                    labelText: 'MOT DE PASSE *'),
-              ),
-              new Center(
-                child: new RaisedButton(
-                  color: colorG,
-                  child: const Text(
-                    'SE CONNECTER',
-                    style: myStyle,
                   ),
-                  onPressed: _handleSubmitted,
-                ),
+                  onChanged: (String newVal) {
+                    if (newVal.length <= _maxLength) {
+                      text = newVal;
+                    } else {
+                      _loginController.value = new TextEditingValue(
+                          text: text,
+                          selection: new TextSelection(
+                              baseOffset: _maxLength,
+                              extentOffset: _maxLength,
+                              affinity: TextAffinity.downstream,
+                              isDirectional: false),
+                          composing: new TextRange(start: 0, end: _maxLength));
+                      _loginController.text = text;
+                    }
+                  }),
+            ),
+            new Padding(
+              padding: new EdgeInsets.only(
+                top: 10.0,
               ),
-            ],
-          ),
+            ),
+            new Container(
+              decoration: new BoxDecoration(
+                border: new Border.all(width: 1.0, color: util.getColorBase()),
+                borderRadius: new BorderRadius.circular(22.0),
+              ),
+              width: 300.0,
+              child: new TextField(
+                  controller: _passwdController,
+                  decoration: new InputDecoration(
+                    border: InputBorder.none,
+                    hintText: 'MOT DE PASSE',
+                    prefixIcon: new Icon(
+                      Icons.lock,
+                      color: util.getColorBase(),
+                    ),
+                  ),
+                  obscureText: true,
+                  onChanged: (String newVal) {
+                    if (newVal.length <= _maxLength) {
+                      text = newVal;
+                    } else {
+                      _passwdController.value = new TextEditingValue(
+                          text: text,
+                          selection: new TextSelection(
+                              baseOffset: _maxLength,
+                              extentOffset: _maxLength,
+                              affinity: TextAffinity.downstream,
+                              isDirectional: false),
+                          composing: new TextRange(start: 0, end: _maxLength));
+                      _passwdController.text = text;
+                    }
+                  }),
+            ),
+            new Padding(
+              padding: new EdgeInsets.only(
+                top: 10.0,
+              ),
+            ),
+            new MaterialButton(
+              color: util.getColorBase(),
+              textColor: util.getColorWhite(),
+              child: new Text('SE CONNECTER'),
+              onPressed: () {
+                print('${_loginController.text}');
+                Navigator.of(context).pushNamed('/monprofil');
+              },
+            ),
+          ],
         ),
       ),
     );

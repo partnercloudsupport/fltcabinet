@@ -6,7 +6,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
-FirebaseUser _tmpUser;
 final GoogleSignIn _googleSignIn = new GoogleSignIn();
 
 class Authentifier extends StatefulWidget {
@@ -19,11 +18,11 @@ class Authentifier extends StatefulWidget {
 
 class AuthentifierSate extends State {
   Future<String> _message = new Future<String>.value('');
-
 // test anonymement
 // =================================================
   Future<String> _testSignInAnonymously() async {
     final FirebaseUser user = await _auth.signInAnonymously();
+
     assert(user != null);
     assert(user.isAnonymous);
     assert(user.isEmailVerified);
@@ -47,6 +46,7 @@ class AuthentifierSate extends State {
   // ==============================================
   Future<String> _testSignInWithGoogle() async {
     final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
+
     final GoogleSignInAuthentication googleAuth =
         await googleUser.authentication;
     final FirebaseUser user = await _auth.signInWithGoogle(
