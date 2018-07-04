@@ -1,0 +1,17 @@
+[
+    {
+        "login": "njaka",
+        "password": "njakamdp",
+        "idProfil": 1
+    },
+    {
+        "login": "ari",
+        "password": "arimdp",
+        "idProfil": 2
+    },
+    {
+        "login": "arinjaka",
+        "password": "arinjakamdp",
+        "idProfil": 1
+    }
+]

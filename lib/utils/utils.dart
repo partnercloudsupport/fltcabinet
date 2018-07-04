@@ -4,7 +4,7 @@ Color getColorBase(){
   return new Color.fromRGBO(3, 175, 128, 1.0);
 }
 
-Color colorGlobal() {
+Color getColorGlobal() {
   return new Color.fromRGBO(3, 175, 128, 1.0);
 }
 
@@ -28,6 +28,20 @@ TextStyle getMyStyleGlobal() {
   return new TextStyle(
     fontFamily: 'Arial',
     fontSize: 15.0,
-    color: colorGlobal(),
+    color: getColorGlobal(),
   );
+}
+
+TextStyle getStyleWhite() {
+  return new TextStyle(
+    color: getColorWhite(),
+  );
+}
+
+double getWidthInput() {
+  return 300.0;
+}
+
+double getHeightInput() {
+  return 55.0;
 }

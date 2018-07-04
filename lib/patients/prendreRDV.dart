@@ -68,7 +68,7 @@ class PrendreRDVState extends State<PrendreRDV> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        backgroundColor: utils.colorGlobal(),
+        backgroundColor: utils.getColorGlobal(),
         title: new Text('Prendre un rendez-vous'),
       ),
       body: new Container(

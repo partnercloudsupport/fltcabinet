@@ -11,19 +11,40 @@ class Inscription extends StatefulWidget {
 }
 
 class InscriptionState extends State<StatefulWidget> {
-
+  final List<String> items = List<String>.generate(200, (index) {
+    if (index % 2 == 0) {
+      return 'Yes at $index';
+    } else {
+      return '$index refused.';
+    }
+  });
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
       home: new Scaffold(
         appBar: new AppBar(
-          // title: Text('INSCRIPTION',),
-          backgroundColor: utils.colorGlobal(),
+          backgroundColor: utils.getColorGlobal(),
         ),
-        body: new Row(
-          children: <Widget>[
-            new Text('INCRIVEZ VOUS'),
-          ],
+        body: new ListView.builder(
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            final item = items[index];
+            return Dismissible(
+              key: Key(item),
+              onDismissed: (direction) {
+                items.removeAt(index);
+                Scaffold.of(context).showSnackBar(SnackBar(
+                      content: new Text('$item remoeved'),
+                    ));
+              },
+              child: new ListTile(
+                title: new Text('Numéro $index'),
+                subtitle: new Text('${items[index]}'),
+              ),
+              background: new Container(color: utils.getColorGlobal()),
+              movementDuration: const Duration(milliseconds: 100),
+            );
+          },
         ),
       ),
     );

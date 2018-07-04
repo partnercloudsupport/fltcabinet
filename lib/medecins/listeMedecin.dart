@@ -21,7 +21,7 @@ class ListeMedecinState extends State<ListeMedecin> {
             'Liste des médecins',
             style: utils.getMyStyle(),
           ),
-          backgroundColor: utils.colorGlobal(),
+          backgroundColor: utils.getColorGlobal(),
         ),
         body: new Container(
           padding: const EdgeInsets.all(5.0),

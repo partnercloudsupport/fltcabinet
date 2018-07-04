@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import '../utils/utils.dart' as utils;
 import 'package:cabinet/patients/image.dart';
 import 'package:cabinet/patients/video.dart';
@@ -61,6 +60,11 @@ class MonProfilState extends State<MonProfil> {
   }
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return new MaterialApp(
       home: new Scaffold(
@@ -93,7 +97,7 @@ class MonProfilState extends State<MonProfil> {
             ),
           ],
           title: new Text('Mon profil'),
-          backgroundColor: utils.colorGlobal(),
+          backgroundColor: utils.getColorGlobal(),
         ),
         body: _loadBody(_body),
       ),

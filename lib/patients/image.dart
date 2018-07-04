@@ -1,8 +1,8 @@
 import 'dart:io';
-
-import 'package:flutter/material.dart';
-import 'package:cabinet/utils/utils.dart' as utils;
 import 'package:image_picker/image_picker.dart';
+import 'package:flutter/material.dart';
+
+import '../utils/utils.dart' as utils;
 
 File img;
 _takePhoto() async {
@@ -17,7 +17,7 @@ Widget image() {
       ),
     ),
     floatingActionButton: new FloatingActionButton(
-      backgroundColor: utils.colorGlobal(),
+      backgroundColor: utils.getColorGlobal(),
       onPressed: _takePhoto,
       child: new Icon(Icons.add_a_photo),
     ),

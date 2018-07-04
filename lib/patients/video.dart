@@ -1,8 +1,8 @@
 import 'dart:io';
-
-import 'package:flutter/material.dart';
-import 'package:cabinet/utils/utils.dart' as utils;
 import 'package:image_picker/image_picker.dart';
+import 'package:flutter/material.dart';
+
+import '../utils/utils.dart' as utils;
 
 _takeVideo() async {
   File img = await ImagePicker.pickImage(source: ImageSource.camera);
@@ -13,7 +13,7 @@ Widget video() {
   return Scaffold(
     body: new Container(),
     floatingActionButton: new FloatingActionButton(
-      backgroundColor: utils.colorGlobal(),
+      backgroundColor: utils.getColorGlobal(),
       onPressed: _takeVideo,
       child: new Icon(Icons.videocam,),
     ),
