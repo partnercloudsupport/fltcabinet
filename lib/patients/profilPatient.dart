@@ -5,13 +5,13 @@ import 'package:cabinet/patients/image.dart';
 import 'package:cabinet/patients/video.dart';
 import 'package:cabinet/interface/choice.dart' as choice;
 
-class MonProfil extends StatefulWidget {
-  static const String routeName = '/monprofil';
+class ProfilPatient extends StatefulWidget {
+  static const String routeName = '/profilpatient';
   @override
-  State<StatefulWidget> createState() => MonProfilState();
+  State<StatefulWidget> createState() => ProfilPatientState();
 }
 
-class MonProfilState extends State<MonProfil> {
+class ProfilPatientState extends State<ProfilPatient> {
   final colorFinal = new Color.fromRGBO(3, 175, 340, 1.0);
   static const colorConst = const Color.fromRGBO(3, 175, 340, 1.0);
 

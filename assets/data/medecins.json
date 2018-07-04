@@ -18,10 +18,7 @@
         "codePostal": 99999,
         "ville": "null"
       },
-      "login": "null",
-      "passwd": "null",
-      "statut": false,
-      "flConnecte": false
+      "statut": false
     },
     {
       "id": 100,
@@ -42,10 +39,7 @@
         "codePostal": 94230,
         "ville": "cachan"
       },
-      "login": "julien",
-      "passwd": "julienmdp",
-      "statut": true,
-      "flConnecte": false
+      "statut": true
     },
     {
       "id": 101,
@@ -66,10 +60,7 @@
         "codePostal": 75019,
         "ville": "paris"
       },
-      "login": "bedou",
-      "passwd": "bedou",
-      "statut": false,
-      "flConnecte": false
+      "statut": false
     },
     {
       "id": 102,
@@ -90,10 +81,7 @@
         "codePostal": 75019,
         "ville": "paris"
       },
-      "login": "marie",
-      "passwd": "marie",
-      "statut": false,
-      "flConnecte": false
+      "statut": false
     },
     {
       "id": 103,
@@ -114,10 +102,7 @@
         "codePostal": 92200,
         "ville": "bagneux"
       },
-      "login": "lihnhu",
-      "passwd": "lihnhu",
-      "statut": false,
-      "flConnecte": false
+      "statut": false
     },
     {
       "id": 104,
@@ -138,10 +123,7 @@
         "codePostal": 77650,
         "ville": "melun"
       },
-      "login": "david",
-      "passwd": "david",
-      "statut": false,
-      "flConnecte": false
+      "statut": false
     },
     {
       "id": 105,
@@ -162,10 +144,7 @@
         "codePostal": 67000,
         "ville": "lyon"
       },
-      "login": "edward",
-      "passwd": "edward",
-      "statut": false,
-      "flConnecte": false
+      "statut": false
     },
     {
       "id": 106,
@@ -186,10 +165,7 @@
         "codePostal": 31200,
         "ville": "ardèche"
       },
-      "login": "christian",
-      "passwd": "christian",
-      "statut": false,
-      "flConnecte": false
+      "statut": false
     },
     {
       "id": 107,
@@ -234,10 +210,7 @@
         "codePostal": 94330,
         "ville": "ivry sur seine"
       },
-      "login": "david",
-      "passwd": "david",
-      "statut": false,
-      "flConnecte": false
+      "statut": false
     },
     {
       "id": 109,
@@ -258,10 +231,7 @@
         "codePostal": 92220,
         "ville": "bagneux"
       },
-      "login": "eddy",
-      "passwd": "eddy",
-      "statut": true,
-      "flConnecte": false
+      "statut": true
     },
     {
       "id": 110,
@@ -282,9 +252,6 @@
         "codePostal": 75012,
         "ville": "paris"
       },
-      "login": "valerie",
-      "passwd": "valerie",
-      "statut": true,
-      "flConnecte": false
+      "statut": true
     }
   ]

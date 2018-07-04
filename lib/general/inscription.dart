@@ -24,6 +24,7 @@ class InscriptionState extends State<StatefulWidget> {
       home: new Scaffold(
         appBar: new AppBar(
           backgroundColor: utils.getColorGlobal(),
+          elevation: 0.0,
         ),
         body: new ListView.builder(
           itemCount: items.length,

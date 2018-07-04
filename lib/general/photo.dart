@@ -26,6 +26,7 @@ class PhotosState extends State<Photo> {
           'Connection with http',
           style: utils.getMyStyle(),
         ),
+        elevation: 0.0,
       ),
       body: new ListView.builder(
         itemCount: data == null ? 0 : data.length,
@@ -66,7 +67,7 @@ class PhotosState extends State<Photo> {
     var response = await http
         .get(Uri.encodeFull(urlPhoto), headers: {"Accept": "application/json"});
     setState(() {
-      var respJson = JSON.decode(response.body);
+      var respJson = json.decode(response.body);
       data = respJson;
     });
     return "Successfull";

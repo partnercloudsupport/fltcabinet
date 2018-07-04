@@ -22,6 +22,7 @@ class ListeMedecinState extends State<ListeMedecin> {
             style: utils.getMyStyle(),
           ),
           backgroundColor: utils.getColorGlobal(),
+          elevation: 0.0,
         ),
         body: new Container(
           padding: const EdgeInsets.all(5.0),
@@ -32,7 +33,7 @@ class ListeMedecinState extends State<ListeMedecin> {
                   .loadString('assets/data/medecins.json'),
               builder: (context, snapshot) {
                 // var medecins = snapshot.data.toString();
-                var medecins = JSON.decode(snapshot.data.toString());
+                var medecins = json.decode(snapshot.data.toString());
                 return new ListView.builder(
                   itemBuilder: (BuildContext context, int index) {
                     return new Card(

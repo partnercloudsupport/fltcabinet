@@ -31,6 +31,7 @@ class TakeCameraState extends State<TakeCamera> {
       home: new Scaffold(
         appBar: new AppBar(
           title: new Text('Take image'),
+          elevation: 0.0,
         ),
         body: new Container(
           child: new Column(

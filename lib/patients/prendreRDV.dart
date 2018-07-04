@@ -70,6 +70,7 @@ class PrendreRDVState extends State<PrendreRDV> {
       appBar: new AppBar(
         backgroundColor: utils.getColorGlobal(),
         title: new Text('Prendre un rendez-vous'),
+        elevation: 0.0,
       ),
       body: new Container(
         child: new Stepper(

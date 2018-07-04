@@ -13,6 +13,7 @@ class ListUser extends StatelessWidget {
       appBar: AppBar(
         title: Text('Liste des users'),
         backgroundColor: utils.getColorGlobal(),
+        elevation: 0.0,
       ),
       body: ListView.builder(
         itemCount: users.length,

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import './general/accueil.dart';
 import './general/inscription.dart';
 import './general/seConnecter.dart';
 
 import './medecins/listeMedecin.dart';
+import './medecins/profilMedecin.dart';
 
-import './patients/monProfil.dart';
+import './patients/profilPatient.dart';
 import './patients/prendreRDV.dart';
 
 import './utils/utils.dart' as utils;
@@ -21,22 +21,22 @@ class AppCabinet extends StatelessWidget {
     return MaterialApp(
       title: 'cabinet',
       routes: <String, WidgetBuilder>{
-        Accueil.routeName: (BuildContext context) => new Accueil(),
-        ListeMedecin.routeName: (BuildContext context) => new ListeMedecin(),
-        MonProfil.routeName: (BuildContext context) => new MonProfil(),
-        PrendreRDV.routeName: (BuildContext context) => new PrendreRDV(),
-        SeConnecter.routeName: (BuildContext context) => new SeConnecter(),
         Inscription.routeName: (BuildContext context) => new Inscription(),
         ListUser.rootName: (BuildContext context) => new ListUser(),
+        ListeMedecin.routeName: (BuildContext context) => new ListeMedecin(),
+        PrendreRDV.routeName: (BuildContext context) => new PrendreRDV(),
+        ProfilPatient.routeName: (BuildContext context) => new ProfilPatient(),
+        ProfilMedecin.routeNate: (BuildContext context) => new ProfilMedecin(),
+        SeConnecter.routeName: (BuildContext context) => new SeConnecter(),
       },
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Cabinet'),
+          title: Text('CABINET'),
           backgroundColor: utils.getColorGlobal(),
           elevation: 0.0,
         ),
         body: Center(
-          child: Accueil(),
+          child: SeConnecter(),
         ),
       ),
     );
