@@ -30,7 +30,7 @@ bool isUser(String login, String passwd) {
 List<User> listUser() {
   return List<User>.generate(
     10,
-    (index) => User(login: 'Identifiant $index', passwd: 'Mot de passe : $index', idProfil: index),
+    (index) => User('Identifiant $index','Mot de passe : $index', index),
   );
 }
 

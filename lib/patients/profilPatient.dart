@@ -4,6 +4,7 @@ import '../utils/utils.dart' as utils;
 import 'package:cabinet/patients/image.dart';
 import 'package:cabinet/patients/video.dart';
 import 'package:cabinet/interface/choice.dart' as choice;
+import '../dao/userDao.dart';
 
 class ProfilPatient extends StatefulWidget {
   static const String routeName = '/profilpatient';
@@ -51,7 +52,7 @@ class ProfilPatientState extends State<ProfilPatient> {
     return _body;
   }
 
-  void _selected(choice.Choice choice) {
+  _selected(choice.Choice choice) {
     if (choice.title == 'Photo') {
       _loadBody(image());
     } else {
@@ -60,7 +61,8 @@ class ProfilPatientState extends State<ProfilPatient> {
   }
 
   @override
-  void initState() {
+  initState() {
+    connectUser();
     super.initState();
   }
 

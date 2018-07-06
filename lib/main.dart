@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import './dao/tempPage.dart';
 import './general/inscription.dart';
 import './general/seConnecter.dart';
 
@@ -12,6 +13,7 @@ import './patients/prendreRDV.dart';
 import './utils/utils.dart' as utils;
 
 import './users/listUser.dart';
+
 
 void main() => runApp(new AppCabinet());
 
@@ -28,6 +30,7 @@ class AppCabinet extends StatelessWidget {
         ProfilPatient.routeName: (BuildContext context) => new ProfilPatient(),
         ProfilMedecin.routeNate: (BuildContext context) => new ProfilMedecin(),
         SeConnecter.routeName: (BuildContext context) => new SeConnecter(),
+        TempPage.routeName:(BuildContext context) => new TempPage(),
       },
       home: Scaffold(
         appBar: AppBar(
@@ -36,6 +39,7 @@ class AppCabinet extends StatelessWidget {
           elevation: 0.0,
         ),
         body: Center(
+          // child: SeConnecter(),
           child: SeConnecter(),
         ),
       ),

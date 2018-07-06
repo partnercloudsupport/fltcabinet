@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../utils/utils.dart' as utils;
 import '../services/userService.dart';
+import 'singInGoogle.dart';
 
 final TextEditingController _loginController = TextEditingController();
 final TextEditingController _passwdController = TextEditingController();
@@ -32,6 +33,7 @@ class _SeConnecterState extends State<SeConnecter> {
 
   @override
   void initState() {
+    signOutWithGoogle();
     super.initState();
   }
 
@@ -207,8 +209,19 @@ class _SeConnecterState extends State<SeConnecter> {
             ),
           ),
         ),
+        Padding(
+          padding: EdgeInsets.only(top: 0.0),
+          child: FlatButton(
+            child: Text('connecter avec google'),
+            onPressed: (){
+              signInWithGoogle().then((String name){
+                name.isEmpty ? Navigator.of(context).pushNamed('/listemedecin') : Navigator.of(context).pushNamed('/profilpatient');
+              });
+            },
+          ),
+        ),
         new Padding(
-          padding: EdgeInsets.only(top: 20.0),
+          padding: EdgeInsets.only(top: 5.0),
           child: new Text(
             '(c) randriambololona 2018',
             style: utils.getMyStyleGlobal(),
