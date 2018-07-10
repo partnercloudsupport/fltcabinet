@@ -24,7 +24,7 @@ class PhotosState extends State<Photo> {
       appBar: new AppBar(
         title: new Text(
           'Connection with http',
-          style: utils.getMyStyle(),
+          style: utils.myStyle,
         ),
         elevation: 0.0,
       ),

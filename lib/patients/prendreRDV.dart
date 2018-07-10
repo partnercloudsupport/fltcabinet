@@ -18,47 +18,47 @@ class PrendreRDVState extends State<PrendreRDV> {
     new Step(
       content: new Text(
         'Choisir son médecin',
-        style: utils.getMyStyleGlobal(),
+        style: utils.myStyleGlobal,
       ),
       state: StepState.indexed,
       title: new Text(
         'Avec quel médecin ?',
-        style: utils.getMyStyleGlobal(),
+        style: utils.myStyleGlobal,
       ),
       isActive: true,
     ),
     new Step(
       title: new Text(
         'Quand ?',
-        style: utils.getMyStyleGlobal(),
+        style: utils.myStyleGlobal,
       ),
       state: StepState.indexed,
       content: new Text(
         'Choisir son créneau horaire',
-        style: utils.getMyStyleGlobal(),
+        style: utils.myStyleGlobal,
       ),
       isActive: true,
     ),
     new Step(
       content: new Text(
         'Confirmer le rendez-vous',
-        style: utils.getMyStyleGlobal(),
+        style: utils.myStyleGlobal,
       ),
       title: new Text(
         'Votre confirmation',
-        style: utils.getMyStyleGlobal(),
+        style: utils.myStyleGlobal,
       ),
       isActive: true,
     ),
     new Step(
       content: new Text(
         'Résumé du rendez-vous',
-        style: utils.getMyStyleGlobal(),
+        style: utils.myStyleGlobal,
       ),
       state: StepState.complete,
       title: new Text(
         'Valider',
-        style: utils.getMyStyleGlobal(),
+        style: utils.myStyleGlobal,
       ),
       isActive: true,
     ),
@@ -68,7 +68,7 @@ class PrendreRDVState extends State<PrendreRDV> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        backgroundColor: utils.getColorGlobal(),
+        backgroundColor: utils.colorGlobal,
         title: new Text('Prendre un rendez-vous'),
         elevation: 0.0,
       ),

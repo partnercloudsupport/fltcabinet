@@ -12,7 +12,7 @@ class ListUser extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Liste des users'),
-        backgroundColor: utils.getColorGlobal(),
+        backgroundColor: utils.colorGlobal,
         elevation: 0.0,
       ),
       body: ListView.builder(
@@ -21,12 +21,12 @@ class ListUser extends StatelessWidget {
           final user = users[index];
           return Dismissible(
             key: Key(user.login),
-            background: Container(color: utils.getColorGlobal(),),
+            background: Container(color: utils.colorGlobal,),
             onDismissed: (direction) {
               users.removeAt(index);
               Scaffold.of(context).showSnackBar(SnackBar(
                     content: Text('Supprimé ${user.login}'),
-                    backgroundColor: utils.getColorGlobal(),
+                    backgroundColor: utils.colorGlobal,
                   ));
             },
             child: ListTile(

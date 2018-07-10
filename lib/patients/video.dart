@@ -13,7 +13,7 @@ Widget video() {
   return Scaffold(
     body: new Container(),
     floatingActionButton: new FloatingActionButton(
-      backgroundColor: utils.getColorGlobal(),
+      backgroundColor: utils.colorGlobal,
       onPressed: _takeVideo,
       child: new Icon(Icons.videocam,),
     ),

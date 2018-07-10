@@ -19,9 +19,9 @@ class ListeMedecinState extends State<ListeMedecin> {
         appBar: new AppBar(
           title: new Text(
             'Liste des médecins',
-            style: utils.getMyStyle(),
+            style: utils.myStyle,
           ),
-          backgroundColor: utils.getColorGlobal(),
+          backgroundColor: utils.colorGlobal,
           elevation: 0.0,
         ),
         body: new Container(
@@ -57,7 +57,7 @@ class ListeMedecinState extends State<ListeMedecin> {
                                   ),
                                   new Text(
                                     medecins[index]['nom'],
-                                    style: utils.getMyStyleGlobal(),
+                                    style: utils.myStyleGlobal,
                                   ),
                                   new Text(medecins[index]['prenom']),
                                 ],
@@ -73,12 +73,12 @@ class ListeMedecinState extends State<ListeMedecin> {
                                   new Padding(padding: new EdgeInsets.all(2.0)),
                                   new Text(
                                     'ADRESSE',
-                                    style: utils.getMyStyleGlobal(),
+                                    style: utils.myStyleGlobal,
                                   ),
                                   new Padding(padding: new EdgeInsets.all(2.0),),
                                   new Text(
                                     'CONTACT',
-                                    style: utils.getMyStyleGlobal(),
+                                    style: utils.myStyleGlobal,
                                   ),
                                   new Text("Téléphone : "),
                                   new Text(

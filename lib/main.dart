@@ -35,11 +35,10 @@ class AppCabinet extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('CABINET'),
-          backgroundColor: utils.getColorGlobal(),
+          backgroundColor: utils.colorGlobal,
           elevation: 0.0,
         ),
         body: Center(
-          // child: SeConnecter(),
           child: SeConnecter(),
         ),
       ),

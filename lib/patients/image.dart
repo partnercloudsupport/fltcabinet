@@ -17,7 +17,7 @@ Widget image() {
       ),
     ),
     floatingActionButton: new FloatingActionButton(
-      backgroundColor: utils.getColorGlobal(),
+      backgroundColor: utils.colorGlobal,
       onPressed: _takePhoto,
       child: new Icon(Icons.add_a_photo),
     ),

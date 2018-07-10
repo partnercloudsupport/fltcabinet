@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../utils/utils.dart' as utils;
 import '../services/userService.dart';
+import 'inscription.dart';
 import 'singInGoogle.dart';
 
 final TextEditingController _loginController = TextEditingController();
@@ -14,7 +15,7 @@ class SeConnecter extends StatefulWidget {
 
 class _SeConnecterState extends State<SeConnecter> {
   double _height = 150.0;
-  double _heightButton = utils.getHeightInput();
+  double _heightButton = utils.heightInput;
   bool _isShow = true;
   final int _maxLength = 25;
   String _text = '';
@@ -23,7 +24,7 @@ class _SeConnecterState extends State<SeConnecter> {
   _seConnecter() {
     final String _login = _loginController.text;
     final String _passwd = _passwdController.text;
-    
+
     _loginController.text = '';
     _passwdController.text = '';
     isUser(_login, _passwd)
@@ -54,7 +55,7 @@ class _SeConnecterState extends State<SeConnecter> {
             height: _height,
             decoration: BoxDecoration(
               border: Border.all(
-                color: utils.getColorGlobal(),
+                color: utils.colorGlobal,
               ),
               borderRadius: BorderRadius.circular(75.0),
             ),
@@ -67,10 +68,10 @@ class _SeConnecterState extends State<SeConnecter> {
         new Padding(
           padding: EdgeInsets.only(top: 5.0),
           child: new Container(
-            width: utils.getWidthInput(),
-            height: utils.getHeightInput(),
+            width: utils.widthInput,
+            height: utils.heightInput,
             decoration: BoxDecoration(
-              border: Border.all(color: utils.getColorGlobal()),
+              border: Border.all(color: utils.colorGlobal),
               borderRadius: BorderRadius.circular(30.0),
             ),
             padding: EdgeInsets.only(
@@ -81,6 +82,7 @@ class _SeConnecterState extends State<SeConnecter> {
               decoration: InputDecoration(
                 hintText: 'LOGIN',
                 border: InputBorder.none,
+                prefixIcon: Icon(Icons.person_outline, color: utils.colorBase,),
               ),
               onChanged: (String newValue) {
                 if (newValue.length < _maxLength) {
@@ -108,13 +110,13 @@ class _SeConnecterState extends State<SeConnecter> {
         new Padding(
           padding: EdgeInsets.only(top: 5.0),
           child: new Container(
-            height: utils.getHeightInput(),
-            width: utils.getWidthInput(),
+            height: utils.heightInput,
+            width: utils.widthInput,
             padding: EdgeInsets.only(
               left: 15.0,
             ),
             decoration: BoxDecoration(
-              border: Border.all(color: utils.getColorGlobal()),
+              border: Border.all(color: utils.colorGlobal),
               borderRadius: BorderRadius.circular(30.0),
             ),
             child: new Row(
@@ -126,6 +128,7 @@ class _SeConnecterState extends State<SeConnecter> {
                     decoration: InputDecoration(
                       hintText: 'MOT DE PASSE',
                       border: InputBorder.none,
+                      prefixIcon: Icon(Icons.lock, color: utils.colorBase,) ,
                     ),
                     obscureText: _isShow,
                     onChanged: (String newValue) {
@@ -157,11 +160,11 @@ class _SeConnecterState extends State<SeConnecter> {
                     icon: (_isShow
                         ? Icon(
                             Icons.visibility_off,
-                            color: utils.getColorGlobal(),
+                            color: utils.colorGlobal,
                           )
                         : Icon(
                             Icons.visibility,
-                            color: utils.getColorGlobal(),
+                            color: utils.colorGlobal,
                           )),
                     iconSize: 20.0,
                     onPressed: () {
@@ -180,16 +183,16 @@ class _SeConnecterState extends State<SeConnecter> {
             top: 5.0,
           ),
           child: new Container(
-            width: utils.getWidthInput(),
+            width: utils.widthInput,
             height: _heightButton,
             decoration: BoxDecoration(
-              color: utils.getColorGlobal(),
+              color: utils.colorGlobal,
               borderRadius: BorderRadius.circular(30.0),
             ),
             child: new MaterialButton(
               child: Text(
                 'SE CONNECTER',
-                style: utils.getStyleWhite(),
+                style: utils.styleWhite,
               ),
               onPressed: _seConnecter,
             ),
@@ -198,33 +201,41 @@ class _SeConnecterState extends State<SeConnecter> {
         new Padding(
           padding: EdgeInsets.only(top: 0.0),
           child: new Container(
-            height: utils.getHeightInput(),
-            width: utils.getWidthInput(),
+            height: utils.heightInput,
+            width: utils.widthInput,
             child: FlatButton(
               child: Text(
-                'vous s\'inscrire',
-                style: utils.getMyStyleGlobal(),
+                '> Vous s\'inscrire',
+                style: utils.myStyleGlobal,
               ),
-              onPressed: null,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Inscription(),
+                    ));
+              },
             ),
           ),
         ),
         Padding(
           padding: EdgeInsets.only(top: 0.0),
           child: FlatButton(
-            child: Text('connecter avec google'),
-            onPressed: (){
-              signInWithGoogle().then((String name){
-                name.isEmpty ? Navigator.of(context).pushNamed('/listemedecin') : Navigator.of(context).pushNamed('/profilpatient');
+            child: Text('> Connecter avec google'),
+            onPressed: () {
+              signInWithGoogle().then((String name) {
+                name.isEmpty
+                    ? Navigator.of(context).pushNamed('/listemedecin')
+                    : Navigator.of(context).pushNamed('/profilpatient');
               });
             },
           ),
         ),
         new Padding(
-          padding: EdgeInsets.only(top: 5.0),
+          padding: EdgeInsets.only(top: 0.0),
           child: new Text(
             '(c) randriambololona 2018',
-            style: utils.getMyStyleGlobal(),
+            style: utils.myStyleGlobal,
           ),
         ),
       ],

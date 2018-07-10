@@ -1,7 +1,7 @@
-// import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
 import 'dart:convert';
-import 'package:http/http.dart'as http;
+import 'package:http/http.dart' as http;
 import '../interface/user.dart';
 
 var users;
@@ -24,16 +24,33 @@ bool verifyUser(String login, String passwd) {
 }
 
 bool isUser(String login, String passwd) {
-  return (login.trim().toLowerCase().toString() == 'njaka' && passwd.trim().toLowerCase().toString() == 'mdp') ? true : false;
- }
+  return (login.trim().toLowerCase().toString() == 'njaka' &&
+          passwd.trim().toLowerCase().toString() == 'mdp')
+      ? true
+      : false;
+}
 
 List<User> listUser() {
   return List<User>.generate(
     10,
-    (index) => User('Identifiant $index','Mot de passe : $index', index),
+    (index) => User('Identifiant $index', 'Mot de passe : $index', index),
   );
 }
 
 String onVerifyUser(String login, String passwd) {
   return isUser(login, passwd) ? '/profilpatient' : 'profilmedecin';
+}
+
+bool addUser(String login, String passwd, int idProfil) {
+  User user = new User(login, passwd, idProfil);
+  bool added = false;
+  final DocumentReference _userRef =
+      Firestore.instance.collection('users').document(login.toString());
+  _userRef.setData(user.toJson()).whenComplete(() {
+    added = true;
+    print(added);
+  }).catchError((err) {
+    print(err);
+  });
+  return added;
 }

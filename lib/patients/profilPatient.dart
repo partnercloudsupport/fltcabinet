@@ -75,7 +75,7 @@ class ProfilPatientState extends State<ProfilPatient> {
             new IconButton(
               icon: new Icon(
                 choice.choices[0].icon,
-                color: utils.getColorWhite(),
+                color: utils.colorWhite,
               ),
               onPressed: () {
                 _selected(choice.choices[0]);
@@ -84,7 +84,7 @@ class ProfilPatientState extends State<ProfilPatient> {
             new IconButton(
               icon: new Icon(
                 choice.choices[1].icon,
-                color: utils.getColorWhite(),
+                color: utils.colorWhite,
               ),
               onPressed: () {
                 _selected(choice.choices[1]);
@@ -93,13 +93,13 @@ class ProfilPatientState extends State<ProfilPatient> {
             new IconButton(
               icon: new Icon(
                 Icons.menu,
-                color: utils.getColorWhite(),
+                color: utils.colorWhite,
               ),
               onPressed: null,
             ),
           ],
           title: new Text('Mon profil'),
-          backgroundColor: utils.getColorGlobal(),
+          backgroundColor: utils.colorGlobal,
         ),
         body: _loadBody(_body),
       ),
