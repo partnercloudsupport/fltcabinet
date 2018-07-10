@@ -33,7 +33,7 @@ class Inscription extends StatefulWidget {
 
 class _InscriptionState extends State<Inscription> {
   final DocumentReference documentReference =
-      Firestore.instance.collection('patients').document('personne');
+  Firestore.instance.collection('patients').document('personne');
   RegExp regExpEmail = new RegExp(r"([a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4})");
   static List<String> _civilites = ['MADAME', 'MADEMOISELLE', 'MONSIEUR'];
   static int _currentStep;
@@ -59,10 +59,11 @@ class _InscriptionState extends State<Inscription> {
                   style: utils.myStyleGlobal,
                 ),
                 items: _civilites
-                    .map((code) => DropdownMenuItem(
-                          value: code,
-                          child: Text(code.toUpperCase()),
-                        ))
+                    .map((code) =>
+                    DropdownMenuItem(
+                      value: code,
+                      child: Text(code.toUpperCase()),
+                    ))
                     .toList(),
                 onChanged: (String code) {
                   print(code.toString());
@@ -73,6 +74,7 @@ class _InscriptionState extends State<Inscription> {
           Padding(
             padding: EdgeInsets.only(top: 5.0),
             child: Container(
+              height: utils.heightInput,
               width: utils.widthInput,
               decoration: BoxDecoration(
                 border: Border.all(color: utils.colorGlobal),
@@ -81,13 +83,18 @@ class _InscriptionState extends State<Inscription> {
               child: TextField(
                 controller: _nomController,
                 decoration:
-                    InputDecoration(hintText: 'NOM', border: InputBorder.none),
+                InputDecoration(
+                  hintText: 'NOM',
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(left: 15.0, top: 14.0,),
+                ),
               ),
             ),
           ),
           Padding(
             padding: EdgeInsets.only(top: 5.0),
             child: Container(
+              height: utils.heightInput,
               width: utils.widthInput,
               decoration: BoxDecoration(
                 border: Border.all(color: utils.colorGlobal),
@@ -96,13 +103,17 @@ class _InscriptionState extends State<Inscription> {
               child: TextField(
                 controller: _prenomController,
                 decoration: InputDecoration(
-                    hintText: 'PRENOM', border: InputBorder.none),
+                  hintText: 'PRENOM',
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(left: 15.0, top: 14.0,),
+                ),
               ),
             ),
           ),
           Padding(
             padding: EdgeInsets.only(top: 5.0),
             child: Container(
+              height: utils.heightInput,
               width: utils.widthInput,
               decoration: BoxDecoration(
                 border: Border.all(color: utils.colorGlobal),
@@ -111,13 +122,17 @@ class _InscriptionState extends State<Inscription> {
               child: TextField(
                 controller: _dateNaissanceController,
                 decoration: InputDecoration(
-                    hintText: 'DATE DE NAISSANCE', border: InputBorder.none),
+                  hintText: 'DATE DE NAISSANCE',
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(left: 15.0, top: 14.0,),
+                ),
               ),
             ),
           ),
           Padding(
             padding: EdgeInsets.only(top: 5.0),
             child: Container(
+              height: utils.heightInput,
               width: utils.widthInput,
               decoration: BoxDecoration(
                 border: Border.all(color: utils.colorGlobal),
@@ -126,7 +141,10 @@ class _InscriptionState extends State<Inscription> {
               child: TextField(
                 controller: _lieuNaissanceController,
                 decoration: InputDecoration(
-                    hintText: 'VILLE DE NAISSANCE', border: InputBorder.none),
+                  hintText: 'VILLE DE NAISSANCE',
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(left: 15.0, top: 14.0,),
+                ),
               ),
             ),
           ),
@@ -146,6 +164,7 @@ class _InscriptionState extends State<Inscription> {
           Padding(
             padding: EdgeInsets.only(top: 5.0),
             child: Container(
+              height: utils.heightInput,
               width: utils.widthInput,
               decoration: BoxDecoration(
                 border: Border.all(color: utils.colorGlobal),
@@ -154,7 +173,10 @@ class _InscriptionState extends State<Inscription> {
               child: TextField(
                 controller: _loginController,
                 decoration: InputDecoration(
-                    hintText: 'LOGIN', border: InputBorder.none),
+                  hintText: 'LOGIN',
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(left: 15.0, top: 14.0,),
+                ),
               ),
             ),
           ),
@@ -162,14 +184,18 @@ class _InscriptionState extends State<Inscription> {
             padding: EdgeInsets.only(top: 5.0),
             child: Container(
               width: utils.widthInput,
+              height: utils.heightInput,
               decoration: BoxDecoration(
                 border: Border.all(color: utils.colorGlobal),
                 borderRadius: BorderRadius.circular(30.0),
               ),
-              child: TextField(
+              child: TextFormField(
                 controller: _passwdController,
                 decoration: InputDecoration(
-                    hintText: 'MOT DE PASSE', border: InputBorder.none),
+                  hintText: 'MOT DE PASSE',
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(left: 15.0, top: 14.0,),
+                ),
               ),
             ),
           ),
@@ -198,8 +224,7 @@ class _InscriptionState extends State<Inscription> {
                 Container(
                   width: 50.0,
                   decoration: BoxDecoration(
-                      // border: Border.all(color: utils.colorGlobal),
-                      ),
+                  ),
                   child: TextField(
                     controller: _cryptoController,
                     keyboardType: TextInputType.number,
@@ -226,8 +251,7 @@ class _InscriptionState extends State<Inscription> {
                 Container(
                   width: utils.widthInput - utils.widthLabel - 50.0,
                   decoration: BoxDecoration(
-                      // border: Border.all(color: utils.colorGlobal),
-                      ),
+                  ),
                   child: TextField(
                     controller: _numeroCarteController,
                     keyboardType: TextInputType.number,
@@ -254,8 +278,8 @@ class _InscriptionState extends State<Inscription> {
                 Container(
                   width: utils.widthInput - utils.widthLabel - 50.0,
                   decoration: BoxDecoration(
-                      // border: Border.all(color: utils.colorGlobal),
-                      ),
+                    // border: Border.all(color: utils.colorGlobal),
+                  ),
                   child: TextField(
                     controller: _dateExpirationController,
                     keyboardType: TextInputType.datetime,
@@ -282,6 +306,7 @@ class _InscriptionState extends State<Inscription> {
           Padding(
             padding: EdgeInsets.only(top: 5.0),
             child: Container(
+              height: utils.heightInput,
               width: utils.widthInput,
               decoration: BoxDecoration(
                 border: Border.all(color: utils.colorGlobal),
@@ -291,13 +316,17 @@ class _InscriptionState extends State<Inscription> {
                 controller: _numeroRueController,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                    hintText: 'NUMERO RUE', border: InputBorder.none),
+                  hintText: 'NUMERO RUE',
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(left: 15.0, top: 14.0,),
+                ),
               ),
             ),
           ),
           Padding(
             padding: EdgeInsets.only(top: 5.0),
             child: Container(
+              height: utils.heightInput,
               width: utils.widthInput,
               decoration: BoxDecoration(
                 border: Border.all(color: utils.colorGlobal),
@@ -306,13 +335,18 @@ class _InscriptionState extends State<Inscription> {
               child: TextField(
                 controller: _libelleController,
                 decoration:
-                    InputDecoration(hintText: 'RUE', border: InputBorder.none),
+                InputDecoration(
+                  hintText: 'RUE',
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(left: 15.0, top: 14.0,),
+                ),
               ),
             ),
           ),
           Padding(
             padding: EdgeInsets.only(top: 5.0),
             child: Container(
+              height: utils.heightInput,
               width: utils.widthInput,
               decoration: BoxDecoration(
                 border: Border.all(color: utils.colorGlobal),
@@ -322,13 +356,17 @@ class _InscriptionState extends State<Inscription> {
                 controller: _codePostalController,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                    hintText: 'CODE POSTAL', border: InputBorder.none),
+                  hintText: 'CODE POSTAL',
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(left: 15.0, top: 14.0,),
+                ),
               ),
             ),
           ),
           Padding(
             padding: EdgeInsets.only(top: 5.0),
             child: Container(
+              height: utils.heightInput,
               width: utils.widthInput,
               decoration: BoxDecoration(
                 border: Border.all(color: utils.colorGlobal),
@@ -337,7 +375,10 @@ class _InscriptionState extends State<Inscription> {
               child: TextField(
                 controller: _villeController,
                 decoration: InputDecoration(
-                    hintText: 'VILLE', border: InputBorder.none),
+                  hintText: 'VILLE',
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(left: 15.0, top: 14.0,),
+                ),
               ),
             ),
           ),
@@ -355,6 +396,7 @@ class _InscriptionState extends State<Inscription> {
           Padding(
             padding: EdgeInsets.only(top: 5.0),
             child: Container(
+              height: utils.heightInput,
               width: 200.0,
               decoration: BoxDecoration(
                 border: Border.all(color: utils.colorGlobal),
@@ -363,6 +405,7 @@ class _InscriptionState extends State<Inscription> {
               child: TextField(
                 controller: _telephoneController,
                 decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(left: 15.0, top: 14.0,),
                   border: InputBorder.none,
                   hintText: '0663193641',
                 ),
@@ -373,18 +416,19 @@ class _InscriptionState extends State<Inscription> {
           Padding(
             padding: EdgeInsets.only(top: 5.0),
             child: Container(
+              height: utils.heightInput,
               width: 200.0,
               decoration: BoxDecoration(
                 border: Border.all(color: utils.colorGlobal),
                 borderRadius: BorderRadius.circular(30.0),
               ),
               child: TextField(
-                textAlign: TextAlign.center,
                 controller: _emailController,
                 decoration: InputDecoration(
-                    prefixText: '',
-                    border: InputBorder.none,
-                    hintText: 'rarinjaka@gmail.com'),
+                  border: InputBorder.none,
+                  hintText: 'rarinjaka@gmail.com',
+                  contentPadding: EdgeInsets.only(left: 15.0, top: 14.0,),
+                ),
                 keyboardType: TextInputType.emailAddress,
               ),
             ),
@@ -412,7 +456,7 @@ class _InscriptionState extends State<Inscription> {
         _villeController,
         _telephoneController,
         _emailController
-        );
+    );
   }
 
   void _jumpForward() {

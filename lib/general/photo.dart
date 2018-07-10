@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 
-void main() => runApp(new MaterialApp(
+void main() =>
+    runApp(new MaterialApp(
       home: new Photo(),
     ));
 
@@ -38,16 +39,16 @@ class PhotosState extends State<Photo> {
                 children: <Widget>[
                   new Card(
                     child: new Container(
-                      child: new Column(
-                        children: <Widget>[
-                          new Padding(padding: const EdgeInsets.all(2.0),),
-                          new Text(data[index]['title']),
-                          new Padding(padding: const EdgeInsets.all(2.0),),
-                          new Text(data[index]['body']),
-                        ],
-                      )
+                        child: new Column(
+                          children: <Widget>[
+                            new Padding(padding: const EdgeInsets.all(2.0),),
+                            new Text(data[index]['title']),
+                            new Padding(padding: const EdgeInsets.all(2.0),),
+                            new Text(data[index]['body']),
+                          ],
+                        )
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
