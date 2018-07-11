@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../interface/patient.dart';
 import '../services/userService.dart' as userSrv;
 
-void addPatient(
+bool addPatient(
     nomCtrl,
     prenomCtrl,
     dateNaissanceCtrl,
@@ -54,13 +54,16 @@ void addPatient(
       email);
   final DocumentReference _patientRef =
       Firestore.instance.collection('patients').document(patient.login);
+  bool added = false;
   userSrv.addUser(login, passwd, 1)
       ? print('Added')
       : _patientRef.setData(patient.toJson()).whenComplete(() {
-          print('\n Added with success');
+          print('\n Added with success ( dans patientService à enlever )');
+          added = true;
         }).catchError((error) {
           print(error);
         });
+        return added;
 }
 
 bool updatePatient(Patient patient) {
