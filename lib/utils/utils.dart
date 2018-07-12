@@ -27,8 +27,8 @@ TextStyle get myStyle {
 TextStyle get myStyleTitle {
   return TextStyle(
     fontFamily: 'Arial',
-    fontSize: 15.0,
-    color: colorBase
+    fontSize: 14.0,
+    color: colorGlobal
   );
 }
 
@@ -46,15 +46,14 @@ TextStyle get styleWhite {
   );
 }
 
+double get heightInput {
+  return 50.0;
+}
+
 double get widthInput {
-  return 300.0;
+  return 320.0;
 }
 
 double get widthLabel {
   return 80.0;
-}
-
-double get heightInput {
-  return 55.0;
-
 }

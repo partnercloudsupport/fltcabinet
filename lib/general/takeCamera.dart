@@ -26,26 +26,37 @@ class TakeCameraState extends State<TakeCamera> {
   // }
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('Take image'),
-          elevation: 0.0,
-        ),
-        body: new Container(
-          child: new Column(
-            children: <Widget>[
-              new Center(
-                child: image == null ? new Text('data') : new Image.file(image, width: 300.0, height: 300.0, scale: 1.0,),
-              )
-            ],
+    return Scaffold(
+      // appBar: new AppBar(
+      //   title: new Text('Take image'),
+      //   elevation: 0.0,
+      // ),
+      body: Stack(
+        children: <Widget>[
+          Image(
+            image: AssetImage('assets/images/medecin.png'),
           ),
-        ),
-        floatingActionButton: new FloatingActionButton(
-          child: new Icon(Icons.add_a_photo),
-          onPressed: _takeImage,
-        ),
+          Center(
+            child: image == null
+                ? new Text('data')
+                : new Image.file(
+                    image,
+                    width: 300.0,
+                    height: 300.0,
+                    scale: 1.0,
+                  ),
+          )
+        ],
+      ),
+      floatingActionButton: new FloatingActionButton(
+        child: new Icon(Icons.add_a_photo),
+        onPressed: _takeImage,
       ),
     );
   }

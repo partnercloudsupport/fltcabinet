@@ -10,7 +10,7 @@ import './medecins/profilMedecin.dart';
 import './patients/profilPatient.dart';
 import './patients/prendreRDV.dart';
 
-import './utils/utils.dart' as utils;
+import './utils/utils.dart';
 
 import './users/listUser.dart';
 
@@ -22,6 +22,7 @@ class AppCabinet extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'cabinet',
+      theme: ThemeData(primaryColor: colorGlobal,),
       routes: <String, WidgetBuilder>{
         Inscription.routeName: (BuildContext context) => new Inscription(),
         ListUser.rootName: (BuildContext context) => new ListUser(),
@@ -35,7 +36,7 @@ class AppCabinet extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('CABINET'),
-          backgroundColor: utils.colorGlobal,
+          backgroundColor: colorGlobal,
           elevation: 0.0,
         ),
         body: Center(
