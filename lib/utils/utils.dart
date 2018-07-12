@@ -51,7 +51,7 @@ double get heightInput {
 }
 
 double get widthInput {
-  return 280.0;
+  return 320.0;
 }
 
 double get widthLabel {

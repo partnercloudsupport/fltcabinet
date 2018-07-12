@@ -56,6 +56,7 @@ class _InscriptionState extends State<Inscription> {
       content: Form(
         key: _formStep0,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Padding(
@@ -84,10 +85,6 @@ class _InscriptionState extends State<Inscription> {
               child: Container(
                 height: utils.heightInput,
                 width: utils.widthInput,
-                decoration: BoxDecoration(
-                  border: Border.all(color: utils.colorGlobal),
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
                 child: TextFormField(
                   validator: (String value) {
                     if (value.trim().isEmpty)
@@ -95,12 +92,7 @@ class _InscriptionState extends State<Inscription> {
                   },
                   controller: _nomController,
                   decoration: InputDecoration(
-                    hintText: 'NOM',
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.only(
-                      left: 15.0,
-                      top: 14.0,
-                    ),
+                    hintText: 'LAVILLIER',
                   ),
                 ),
               ),
@@ -110,10 +102,6 @@ class _InscriptionState extends State<Inscription> {
               child: Container(
                 height: utils.heightInput,
                 width: utils.widthInput,
-                decoration: BoxDecoration(
-                  border: Border.all(color: utils.colorGlobal),
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
                 child: TextFormField(
                   validator: (String value) {
                     if (value.trim().isEmpty)
@@ -121,12 +109,7 @@ class _InscriptionState extends State<Inscription> {
                   },
                   controller: _prenomController,
                   decoration: InputDecoration(
-                    hintText: 'PRENOM',
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.only(
-                      left: 15.0,
-                      top: 14.0,
-                    ),
+                    hintText: 'Marc',
                   ),
                 ),
               ),
@@ -136,10 +119,6 @@ class _InscriptionState extends State<Inscription> {
               child: Container(
                 height: utils.heightInput,
                 width: utils.widthInput,
-                decoration: BoxDecoration(
-                  border: Border.all(color: utils.colorGlobal),
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
                 child: TextFormField(
                   validator: (value) {
                     if (value.trim().isEmpty)
@@ -147,12 +126,7 @@ class _InscriptionState extends State<Inscription> {
                   },
                   controller: _dateNaissanceController,
                   decoration: InputDecoration(
-                    hintText: 'DATE DE NAISSANCE',
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.only(
-                      left: 15.0,
-                      top: 14.0,
-                    ),
+                    hintText: '01/01/2000',
                   ),
                 ),
               ),
@@ -162,22 +136,13 @@ class _InscriptionState extends State<Inscription> {
               child: Container(
                 height: utils.heightInput,
                 width: utils.widthInput,
-                decoration: BoxDecoration(
-                  border: Border.all(color: utils.colorGlobal),
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
                 child: TextFormField(
                   validator: (String value) {
                     if (value.isEmpty) return 'Ce champ ne peut pas être vide';
                   },
                   controller: _lieuNaissanceController,
                   decoration: InputDecoration(
-                    hintText: 'VILLE DE NAISSANCE',
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.only(
-                      left: 15.0,
-                      top: 14.0,
-                    ),
+                    hintText: 'Paris',
                   ),
                 ),
               ),
@@ -197,6 +162,7 @@ class _InscriptionState extends State<Inscription> {
       content: Form(
         key: _formStep1,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Padding(
@@ -204,10 +170,6 @@ class _InscriptionState extends State<Inscription> {
               child: Container(
                 height: utils.heightInput,
                 width: utils.widthInput,
-                decoration: BoxDecoration(
-                  border: Border.all(color: utils.colorGlobal),
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
                 child: TextFormField(
                   validator: (String value) {
                     if (value.trim().isEmpty)
@@ -216,11 +178,6 @@ class _InscriptionState extends State<Inscription> {
                   controller: _loginController,
                   decoration: InputDecoration(
                     hintText: 'LOGIN',
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.only(
-                      left: 15.0,
-                      top: 14.0,
-                    ),
                   ),
                 ),
               ),
@@ -230,10 +187,6 @@ class _InscriptionState extends State<Inscription> {
               child: Container(
                 width: utils.widthInput,
                 height: utils.heightInput,
-                decoration: BoxDecoration(
-                  border: Border.all(color: utils.colorGlobal),
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
                 child: TextFormField(
                   validator: (String value) {
                     if (value.trim().isEmpty)
@@ -242,11 +195,6 @@ class _InscriptionState extends State<Inscription> {
                   controller: _passwdController,
                   decoration: InputDecoration(
                     hintText: 'MOT DE PASSE',
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.only(
-                      left: 15.0,
-                      top: 14.0,
-                    ),
                   ),
                 ),
               ),
@@ -264,6 +212,7 @@ class _InscriptionState extends State<Inscription> {
       content: Form(
         key: _formStep2,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Padding(
@@ -280,7 +229,6 @@ class _InscriptionState extends State<Inscription> {
                   Container(
                     height: utils.heightInput,
                     width: 50.0,
-                    decoration: BoxDecoration(),
                     child: TextFormField(
                       validator: (value) {
                         if (!isLength(value.trim(), 3, 3))
@@ -311,7 +259,6 @@ class _InscriptionState extends State<Inscription> {
                   Container(
                     height: utils.heightInput,
                     width: utils.widthInput - utils.widthLabel - 50.0,
-                    decoration: BoxDecoration(),
                     child: TextFormField(
                       validator: (value) {
                         if (!isLength(value.trim(), 16, 16))
@@ -342,9 +289,6 @@ class _InscriptionState extends State<Inscription> {
                   Container(
                     height: utils.heightInput,
                     width: 100.0,
-                    decoration: BoxDecoration(
-                      // border: Border.all(color: utils.colorGlobal),
-                    ),
                     child: TextFormField(
                       validator: (value) {
                         if (value.trim().isEmpty) return 'Renseignez le champ';
@@ -373,6 +317,7 @@ class _InscriptionState extends State<Inscription> {
       content: Form(
         key: _formStep3,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Padding(
@@ -380,10 +325,6 @@ class _InscriptionState extends State<Inscription> {
               child: Container(
                 height: utils.heightInput,
                 width: utils.widthInput,
-                decoration: BoxDecoration(
-                  border: Border.all(color: utils.colorGlobal),
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
                 child: TextFormField(
                   validator: (value) {
                     if (value.trim().isEmpty || value.trim().length > 7)
@@ -393,11 +334,6 @@ class _InscriptionState extends State<Inscription> {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     hintText: 'NUMERO RUE',
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.only(
-                      left: 15.0,
-                      top: 14.0,
-                    ),
                   ),
                 ),
               ),
@@ -407,10 +343,6 @@ class _InscriptionState extends State<Inscription> {
               child: Container(
                 height: utils.heightInput,
                 width: utils.widthInput,
-                decoration: BoxDecoration(
-                  border: Border.all(color: utils.colorGlobal),
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
                 child: TextFormField(
                   validator: (value) {
                     if (value.trim().isEmpty)
@@ -419,11 +351,6 @@ class _InscriptionState extends State<Inscription> {
                   controller: _libelleController,
                   decoration: InputDecoration(
                     hintText: 'RUE',
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.only(
-                      left: 15.0,
-                      top: 14.0,
-                    ),
                   ),
                 ),
               ),
@@ -433,10 +360,6 @@ class _InscriptionState extends State<Inscription> {
               child: Container(
                 height: utils.heightInput,
                 width: utils.widthInput,
-                decoration: BoxDecoration(
-                  border: Border.all(color: utils.colorGlobal),
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
                 child: TextFormField(
                   validator: (String value) {
                     if (value.trim().isEmpty || value.trim().length != 5)
@@ -446,11 +369,6 @@ class _InscriptionState extends State<Inscription> {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     hintText: 'CODE POSTAL',
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.only(
-                      left: 15.0,
-                      top: 14.0,
-                    ),
                   ),
                 ),
               ),
@@ -460,10 +378,6 @@ class _InscriptionState extends State<Inscription> {
               child: Container(
                 height: utils.heightInput,
                 width: utils.widthInput,
-                decoration: BoxDecoration(
-                  border: Border.all(color: utils.colorGlobal),
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
                 child: TextFormField(
                   validator: (String value) {
                     if (value.trim().isEmpty)
@@ -472,11 +386,6 @@ class _InscriptionState extends State<Inscription> {
                   controller: _villeController,
                   decoration: InputDecoration(
                     hintText: 'VILLE',
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.only(
-                      left: 15.0,
-                      top: 14.0,
-                    ),
                   ),
                 ),
               ),
@@ -494,17 +403,14 @@ class _InscriptionState extends State<Inscription> {
       content: Form(
         key: _formStep4,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Padding(
               padding: EdgeInsets.only(top: 5.0),
               child: Container(
                 height: utils.heightInput,
-                width: 200.0,
-                decoration: BoxDecoration(
-                  border: Border.all(color: utils.colorGlobal),
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
+                width: utils.widthInput,
                 child: TextFormField(
                   validator: (String value) {
                     if (value.trim().length != 12 ||
@@ -514,11 +420,6 @@ class _InscriptionState extends State<Inscription> {
                   },
                   controller: _telephoneController,
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.only(
-                      left: 15.0,
-                      top: 14.0,
-                    ),
-                    border: InputBorder.none,
                     hintText: '+33663193641',
                   ),
                   keyboardType: TextInputType.phone,
@@ -529,11 +430,7 @@ class _InscriptionState extends State<Inscription> {
               padding: EdgeInsets.only(top: 5.0),
               child: Container(
                 height: utils.heightInput,
-                width: 200.0,
-                decoration: BoxDecoration(
-                  border: Border.all(color: utils.colorGlobal),
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
+                width: utils.widthInput,
                 child: TextFormField(
                   validator: (String value) {
                     if (!isEmail(value.trim()))
@@ -541,12 +438,7 @@ class _InscriptionState extends State<Inscription> {
                   },
                   controller: _emailController,
                   decoration: InputDecoration(
-                    border: InputBorder.none,
                     hintText: 'rarinjaka@gmail.com',
-                    contentPadding: EdgeInsets.only(
-                      left: 15.0,
-                      top: 14.0,
-                    ),
                   ),
                   keyboardType: TextInputType.emailAddress,
                 ),
@@ -674,7 +566,7 @@ class _InscriptionState extends State<Inscription> {
                 color: utils.colorWhite,
               ),
               iconSize: 30.0,
-              onPressed: null,
+              onPressed: () => Navigator.of(context).pop(),
             ),
           ],
         ),
