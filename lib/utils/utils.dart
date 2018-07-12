@@ -46,15 +46,14 @@ TextStyle get styleWhite {
   );
 }
 
+double get heightInput {
+  return 50.0;
+}
+
 double get widthInput {
-  return 300.0;
+  return 280.0;
 }
 
 double get widthLabel {
   return 80.0;
-}
-
-double get heightInput {
-  return 55.0;
-
 }

@@ -47,11 +47,10 @@ class _SeConnecterState extends State<SeConnecter> {
     });
 
     return new Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
-        new Padding(
-          padding: new EdgeInsets.only(top: 0.0),
-          child: new Container(
+        new Container(
             height: _height,
             decoration: BoxDecoration(
               border: Border.all(
@@ -64,24 +63,21 @@ class _SeConnecterState extends State<SeConnecter> {
               radius: 75.0,
             ),
           ),
-        ),
         new Padding(
           padding: EdgeInsets.only(top: 5.0),
           child: new Container(
-            width: utils.widthInput,
+            width: utils.widthInput - 50.0,
             height: utils.heightInput,
-            decoration: BoxDecoration(
-              border: Border.all(color: utils.colorGlobal),
-              borderRadius: BorderRadius.circular(30.0),
-            ),
-            padding: EdgeInsets.only(
-              left: 15.0,
-            ),
+            // decoration: BoxDecoration(
+            //   border: Border.all(color: utils.colorGlobal),
+            //   borderRadius: BorderRadius.circular(30.0),
+            // ),
+            // padding: EdgeInsets.only(left: 15.0,),
             child: new TextField(
               controller: _loginController,
               decoration: InputDecoration(
                 hintText: 'LOGIN',
-                border: InputBorder.none,
+                // border: InputBorder.none,
                 prefixIcon: Icon(Icons.person_outline, color: utils.colorBase,),
               ),
               onChanged: (String newValue) {
@@ -112,22 +108,20 @@ class _SeConnecterState extends State<SeConnecter> {
           child: new Container(
             height: utils.heightInput,
             width: utils.widthInput,
-            padding: EdgeInsets.only(
-              left: 15.0,
-            ),
-            decoration: BoxDecoration(
-              border: Border.all(color: utils.colorGlobal),
-              borderRadius: BorderRadius.circular(30.0),
-            ),
+            // padding: EdgeInsets.only(left: 15.0,),
+            // decoration: BoxDecoration(
+            //   border: Border.all(color: utils.colorGlobal),
+            //   borderRadius: BorderRadius.circular(30.0),
+            // ),
             child: new Row(
               children: <Widget>[
                 new Container(
-                  width: 240.0,
+                  width: utils.widthInput - 50.0,
                   child: new TextField(
                     controller: _passwdController,
                     decoration: InputDecoration(
                       hintText: 'MOT DE PASSE',
-                      border: InputBorder.none,
+                      // border: InputBorder.none,
                       prefixIcon: Icon(Icons.lock, color: utils.colorBase,) ,
                     ),
                     obscureText: _isShow,
@@ -183,16 +177,17 @@ class _SeConnecterState extends State<SeConnecter> {
             top: 5.0,
           ),
           child: new Container(
-            width: utils.widthInput,
+            width: utils.widthInput - 25.0,
             height: _heightButton,
             decoration: BoxDecoration(
-              color: utils.colorGlobal,
+              // color: utils.colorGlobal,
+              border: Border.all(color: utils.colorBase),
               borderRadius: BorderRadius.circular(30.0),
             ),
             child: new MaterialButton(
               child: Text(
                 'SE CONNECTER',
-                style: utils.styleWhite,
+                style: utils.myStyleGlobal,
               ),
               onPressed: _seConnecter,
             ),
@@ -232,7 +227,7 @@ class _SeConnecterState extends State<SeConnecter> {
           ),
         ),
         new Padding(
-          padding: EdgeInsets.only(top: 0.0),
+          padding: EdgeInsets.only(top: 0.0, bottom: 5.0,),
           child: new Text(
             '(c) randriambololona 2018',
             style: utils.myStyleGlobal,

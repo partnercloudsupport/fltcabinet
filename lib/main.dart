@@ -22,6 +22,7 @@ class AppCabinet extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'cabinet',
+      theme: ThemeData(primaryColor: utils.colorBase,),
       routes: <String, WidgetBuilder>{
         Inscription.routeName: (BuildContext context) => new Inscription(),
         ListUser.rootName: (BuildContext context) => new ListUser(),

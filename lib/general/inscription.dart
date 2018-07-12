@@ -561,7 +561,7 @@ class _InscriptionState extends State<Inscription> {
 
 //insert into database all informations
   _validateInscription() {
-    if (patientSrv.addPatient(
+    if (!patientSrv.addPatient(
         _nomController,
         _prenomController,
         _dateNaissanceController,
