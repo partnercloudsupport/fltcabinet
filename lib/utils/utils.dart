@@ -27,8 +27,8 @@ TextStyle get myStyle {
 TextStyle get myStyleTitle {
   return TextStyle(
     fontFamily: 'Arial',
-    fontSize: 15.0,
-    color: colorBase
+    fontSize: 14.0,
+    color: colorGlobal
   );
 }
 
