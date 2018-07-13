@@ -5,7 +5,8 @@ import 'package:validator/validator.dart';
 import '../utils/utils.dart' as utils;
 import '../services/patientService.dart' as patientSrv;
 import '../general/seConnecter.dart';
-import 'connect.dart';
+import '../patients/patient.dart';
+
 // TextEditingController _civiliteController = new TextEditingController();
 TextEditingController _nomController = new TextEditingController();
 TextEditingController _prenomController = new TextEditingController();
@@ -576,7 +577,7 @@ class _InscriptionState extends State<Inscription> {
                 color: utils.colorWhite,
               ),
               iconSize: 30.0,
-              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> CupertinoNavigationDemo())),
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> Patient())),
             ),
           ],
         ),
