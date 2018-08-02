@@ -3,8 +3,9 @@ import '../../icons/icon.dart';
 import '../../utils/utils.dart' as utils;
 import 'tabs/medecin-tab.dart';
 import 'tabs/parametre-tab.dart';
+import 'tabs/prendre-rdv-tab.dart';
 import 'tabs/prendreRDV.dart';
-import 'tabs/profilePatient.dart';
+import 'tabs/profil-tab.dart';
 
 class TabBarPatient extends StatefulWidget {
   static const String routeName = '/patient';
@@ -30,12 +31,11 @@ class TabBarPatientState extends State<TabBarPatient>
         vsync: this,
         initialIndex: 3,
         callBack: (index) {
-          navKey.currentState.pushReplacementNamed('/$index');
-          // if (index == 3) {
-          //   ProfilePatient();
-          // } else {
-          //   navKey.currentState.pushReplacementNamed('/$index');
-          // }
+          if (index == 3) {
+            ProfilTab();
+          } else {
+            navKey.currentState.pushReplacementNamed('/$index');
+          }
         });
   }
 
@@ -43,6 +43,7 @@ class TabBarPatientState extends State<TabBarPatient>
   Widget build(BuildContext context) {
     print('\nCOMMENCE DANS LA PARTIE PATIENT');
     return Scaffold(
+      appBar: PreferredSize(preferredSize: Size.fromHeight(0.0), child: new Container(),),
       body: navigator,
       bottomNavigationBar: new Material(
         child: new TabBar(
@@ -88,19 +89,19 @@ class TabBarPatientState extends State<TabBarPatient>
         switch (setting.name) {
           case '/':
             return new MaterialPageRoute(
-                builder: (_) => PrendreRDV(), settings: setting);
+                builder: (_) => ProfilTab(), settings: setting);
           case '/monprofil':
             return new MaterialPageRoute(
-                builder: (_) => ProfilePatient(), settings: setting);
+                builder: (_) => ProfilTab(), settings: setting);
           case '/0':
             return new MaterialPageRoute(
-                builder: (_) => ProfilePatient(), settings: setting);
+                builder: (_) => ProfilTab(), settings: setting);
           case '/1':
             return new MaterialPageRoute(
                 builder: (_) => MedecinTab(), settings: setting);
           case '/2':
             return new MaterialPageRoute(
-                builder: (_) => PrendreRDV(), settings: setting);
+                builder: (_) => PrendreRdvTab(), settings: setting);
           case '/3':
             return new MaterialPageRoute(
                 builder: (_) => ParametreTab(), settings: setting);
