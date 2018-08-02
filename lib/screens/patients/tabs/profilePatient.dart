@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../utils/utils.dart' as utils;
+import '../../../utils/utils.dart' as utils;
 import 'package:cabinet/patients/image.dart';
 import 'package:cabinet/patients/video.dart';
 import 'package:cabinet/interface/choice.dart' as choice;
-import '../dao/userDao.dart';
 
-class ProfilPatient extends StatefulWidget {
-  static const String routeName = '/profilpatient';
+class ProfilePatient extends StatefulWidget {
+  static const String routeName = '/profilepatient';
   @override
-  State<StatefulWidget> createState() => ProfilPatientState();
+  _ProfilePatientState createState() => _ProfilePatientState();
 }
 
-class ProfilPatientState extends State<ProfilPatient> {
+class _ProfilePatientState extends State<ProfilePatient> {
   final colorFinal = new Color.fromRGBO(3, 175, 340, 1.0);
   static const colorConst = const Color.fromRGBO(3, 175, 340, 1.0);
 
@@ -62,7 +61,7 @@ class ProfilPatientState extends State<ProfilPatient> {
 
   @override
   initState() {
-    connectUser();
+    // connectUser();
     super.initState();
   }
 

@@ -174,22 +174,22 @@ class _SeConnecterState extends State<SeConnecter>
                           ),
                         ),
                         IconButton(
-                            icon: (_isShow
-                                ? Icon(
-                                    Icons.visibility_off,
-                                    color: utils.colorGlobal,
-                                  )
-                                : Icon(
-                                    Icons.visibility,
-                                    color: utils.colorGlobal,
-                                  )),
-                            iconSize: 20.0,
-                            onPressed: () {
-                              setState(() {
-                                _isShow = !_isShow;
-                              });
-                            },
-                          ),
+                          icon: (_isShow
+                              ? Icon(
+                                  Icons.visibility_off,
+                                  color: utils.colorGlobal,
+                                )
+                              : Icon(
+                                  Icons.visibility,
+                                  color: utils.colorGlobal,
+                                )),
+                          iconSize: 20.0,
+                          onPressed: () {
+                            setState(() {
+                              _isShow = !_isShow;
+                            });
+                          },
+                        ),
                         // ),
                       ],
                     ),
@@ -228,9 +228,19 @@ class _SeConnecterState extends State<SeConnecter>
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 FlatButton(
-                  child: Text(
-                    '> Vous s\'inscrire',
-                    style: utils.myStyleGlobal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      new Icon(
+                        Icons.arrow_forward_ios,
+                        color: utils.colorBase,
+                        size: 18.0,
+                      ),
+                      Text(
+                        'Vous s\'inscrire',
+                        style: utils.myStyleGlobal,
+                      ),
+                    ],
                   ),
                   onPressed: () {
                     Navigator.push(
@@ -249,15 +259,6 @@ class _SeConnecterState extends State<SeConnecter>
                           : Navigator.of(context).pushNamed('/profilpatient');
                     });
                   },
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    bottom: 10.0,
-                  ),
-                  child: Text(
-                    '(c) randriambololona 2018',
-                    style: utils.myStyleGlobal,
-                  ),
                 ),
               ],
             ),

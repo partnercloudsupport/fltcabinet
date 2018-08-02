@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../utils/utils.dart' as utils;
+import '../../../utils/utils.dart' as utils;
 
 void main() => runApp(new MaterialApp(
       home: new PrendreRDV(),

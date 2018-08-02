@@ -37,6 +37,7 @@ TextStyle get myStyleGlobal {
     fontFamily: 'Arial',
     fontSize: 15.0,
     color: colorGlobal,
+    letterSpacing: 2.0,
   );
 }
 
