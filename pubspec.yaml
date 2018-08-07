@@ -27,7 +27,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/header.jpg
+    - assets/images/header-profil.jpg
     - assets/images/medecin.png
     - assets/data/medecins.json
   # - images/a_dot_ham.jpeg

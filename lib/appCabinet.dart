@@ -23,23 +23,14 @@ class _AppCabinetState extends State<AppCabinet> {
         primaryColor: colorGlobal,
         textTheme: TextTheme(
           body1: TextStyle(
-            fontSize: 14.0,
+            fontSize: 18.0,
             letterSpacing: 1.5,
-            height: 1.0,
+            height: 1.1,
           ),
         ),
       ),
       routes: <String, WidgetBuilder>{
-      //   Inscription.routeName: (BuildContext context) => new Inscription(),
-      //   ListUser.rootName: (BuildContext context) => new ListUser(),
-      //   ListeMedecin.routeName: (BuildContext context) => new ListeMedecin(),
-      //   // PrendreRDV.routeName: (BuildContext context) => new PrendreRDV(),
-        // ProfilePatient.routeName: (BuildContext context) =>
-        //     new ProfilePatient(),
         TabBarPatient.routeName: (BuildContext context) => new TabBarPatient(),
-      //   ProfilMedecin.routeNate: (BuildContext context) => new ProfilMedecin(),
-      //   SeConnecter.routeName: (BuildContext context) => new SeConnecter(),
-      //   TempPage.routeName: (BuildContext context) => new TempPage(),
       },
       home: Scaffold(
         appBar: PreferredSize(

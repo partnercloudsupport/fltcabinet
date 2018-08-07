@@ -4,7 +4,6 @@ import '../../utils/utils.dart' as utils;
 import 'tabs/medecin-tab.dart';
 import 'tabs/parametre-tab.dart';
 import 'tabs/prendre-rdv-tab.dart';
-import 'tabs/prendreRDV.dart';
 import 'tabs/profil-tab.dart';
 
 class TabBarPatient extends StatefulWidget {
@@ -44,8 +43,10 @@ class TabBarPatientState extends State<TabBarPatient>
     print('\nCOMMENCE DANS LA PARTIE PATIENT');
     return Scaffold(
       appBar: PreferredSize(preferredSize: Size.fromHeight(0.0), child: new Container(),),
+      backgroundColor: utils.colorBase,
       body: navigator,
       bottomNavigationBar: new Material(
+        color: Colors.white70,
         child: new TabBar(
           indicatorColor: utils.colorGlobal,
           controller: tabController,

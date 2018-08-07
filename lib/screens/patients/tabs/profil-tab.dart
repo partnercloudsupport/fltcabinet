@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../components/CabinetTitle.dart';
 import '../../../components/header.dart';
 
 class ProfilTab extends StatefulWidget {
@@ -20,11 +21,22 @@ class _ProfilTabState extends State<ProfilTab> {
 
   @override
   Widget build(BuildContext context) {
-    return new ListView(
-      children: <Widget>[
-        new Header(),
-        new Text('Profil'),
-      ],
+    return new Container(
+      color: Colors.white,
+      child: new ListView(
+        children: <Widget>[
+          new Header('assets/images/header-profil.jpg'),
+          new Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+            child: new Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                CabinetTitle('Profil Utilisateur',),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
