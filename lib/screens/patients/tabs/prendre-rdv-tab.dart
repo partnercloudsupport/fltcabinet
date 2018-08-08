@@ -20,6 +20,6 @@ class _PrendreRdvTabState extends State<PrendreRdvTab> {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilderWidget(title: 'PRENDRE RENDEZ-VOUS');
+    return LayoutBuilderWidget(title: 'PRENDRE RENDEZ VOUS', contenu: 'contenu',);
   }
 }

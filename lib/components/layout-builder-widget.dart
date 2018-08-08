@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import '../utils/utils.dart' as utils;
+import 'CabinetTitle.dart';
 
 class LayoutBuilderWidget extends StatelessWidget {
   final String title;
@@ -22,10 +22,12 @@ class LayoutBuilderWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               new Container(
-                  height: 50.0,
-                  child: new Text(title,
-                      style: new TextStyle(color: utils.colorBase))),
-              new Container(color: Colors.green, height: 120.0),
+                alignment: Alignment.centerRight,
+                padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
+                  child: new CabinetTitle(title)),
+              new Container(
+                padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                height: 120.0, child: new Text(contenu),),
             ]),
       ));
     });

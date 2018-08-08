@@ -1,26 +1,5 @@
 [
     {
-      "id": 999,
-      "idCommune": 101,
-      "civilite": "Monsieur",
-      "nom": "PAR DEFAUT",
-      "prenom": "Défaut",
-      "dateNat": "01/01/1900",
-      "lieuNat": "DEFAULT",
-      "specialite": "non fourni",
-      "numeroOrdre": 9999999999,
-      "photo": "/assets/images/medecin.png",
-      "telephone": 999999999,
-      "email": "null@gmail.com",
-      "adresse": {
-        "numero": 1,
-        "rue": "null",
-        "codePostal": 99999,
-        "ville": "null"
-      },
-      "statut": false
-    },
-    {
       "id": 100,
       "idCommune": 102,
       "civilite": "Monsieur",
@@ -30,7 +9,7 @@
       "lieuNat": "evreux",
       "specialite": "Dentiste",
       "numeroOrdre": 100100100,
-      "photo": "/assets/images/medecin.png",
+      "photo": "assets/images/medecin.png",
       "telephone": 663193641,
       "email": "jbernard@gmail.com",
       "adresse": {
@@ -51,7 +30,7 @@
       "lieuNat": "cachan",
       "specialite": "O.R.L.",
       "numeroOrdre": 101101101,
-      "photo": "/assets/imgs/twitter.svg.png",
+      "photo": "assets/images/medecin.png",
       "telephone": 2222222222,
       "email": "bilham@gmail.com",
       "adresse": {
@@ -72,7 +51,7 @@
       "lieuNat": "paris",
       "specialite": "Médecin généraliste",
       "numeroOrdre": 102102102,
-      "photo": "/assets/images/medecin.png",
+      "photo": "assets/images/medecin.png",
       "telephone": 3333333333,
       "email": "mleblanc@gmail.com",
       "adresse": {
@@ -93,7 +72,7 @@
       "lieuNat": "paris",
       "specialite": "Pédiatre",
       "numeroOrdre": 103103103,
-      "photo": "/assets/images/medecin.png",
+      "photo": "assets/images/medecin.png",
       "telephone": 9999999999,
       "email": "hlinh@gmail.com",
       "adresse": {
@@ -114,7 +93,7 @@
       "lieuNat": "hongrie",
       "specialite": "Psychiatre",
       "numeroOrdre": 104104104,
-      "photo": "/assets/images/medecin.png",
+      "photo": "assets/images/medecin.png",
       "telephone": 6666666666,
       "email": "dlavillier@gmail.com",
       "adresse": {
@@ -135,7 +114,7 @@
       "lieuNat": "martinique",
       "specialite": "Ortophoniste",
       "numeroOrdre": 105105105,
-      "photo": "/assets/images/medecin.png",
+      "photo": "assets/images/medecin.png",
       "telephone": 6666666666,
       "email": "bedward@gmail.com",
       "adresse": {
@@ -156,7 +135,7 @@
       "lieuNat": "levallois perret",
       "specialite": "Pédiatre",
       "numeroOrdre": 106106106,
-      "photo": "/assets/images/medecin.png",
+      "photo": "assets/images/medecin.png",
       "telephone": 6666666666,
       "email": "lchristian@gmail.com",
       "adresse": {
@@ -177,7 +156,7 @@
       "lieuNat": "ivry sur seine",
       "specialite": "Psychologue",
       "numeroOrdre": 107107107,
-      "photo": "/assets/images/medecin.png",
+      "photo": "assets/images/medecin.png",
       "telephone": 6666666666,
       "email": "bfrancis@gmail.com",
       "adresse": {
@@ -201,7 +180,7 @@
       "lieuNat": "melun",
       "specialite": "Psychiatre",
       "numeroOrdre": 108108108,
-      "photo": "/assets/images/medecin.png",
+      "photo": "assets/images/medecin.png",
       "telephone": 6666666666,
       "email": "jdavid@gmail.com",
       "adresse": {
@@ -222,7 +201,7 @@
       "lieuNat": "paris",
       "specialite": "Physiothérapeute",
       "numeroOrdre": 109109109,
-      "photo": "/assets/images/medecin.png",
+      "photo": "assets/images/medecin.png",
       "telephone": 6666666666,
       "email": "ceddy@gmail.com",
       "adresse": {
@@ -243,7 +222,7 @@
       "lieuNat": "paux",
       "specialite": "Médecin généraliste",
       "numeroOrdre": 110110110,
-      "photo": "/assets/images/medecin.png",
+      "photo": "assets/images/medecin.png",
       "telephone": 5555555555,
       "email": "nvalerie@gmail.com",
       "adresse": {

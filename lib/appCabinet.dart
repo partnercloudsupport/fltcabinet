@@ -24,7 +24,7 @@ class _AppCabinetState extends State<AppCabinet> {
       theme: ThemeData(
         primaryColor: colorGlobal,
         textTheme: TextTheme(
-            body1: TextStyle(fontSize: 18.0, letterSpacing: 1.5, height: 1.1)),
+            body1: TextStyle(fontSize: 15.0, letterSpacing: 1.5, height: 1.1)),
       ),
       routes: <String, WidgetBuilder>{
         TabBarPatient.routeName: (BuildContext context) => new TabBarPatient(),
