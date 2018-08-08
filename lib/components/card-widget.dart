@@ -16,29 +16,44 @@ class CardWidget extends StatelessWidget {
           new Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
               child: new Container(
-                  width: 100.0,
+                  width: 105.0,
                   child: new Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         new CircleAvatar(
                             backgroundImage: AssetImage(data['photo'])),
-                        new Text(data['prenom']),
+                        new Text('Dr. ${data['prenom']}'),
                         new Text(data['nom'],
-                            style: TextStyle(fontWeight: FontWeight.bold))
+                            style: Theme
+                                .of(context)
+                                .textTheme
+                                .body1
+                                .copyWith(fontWeight: FontWeight.bold))
                       ]))),
           new Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
               child: new Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    new Text('${data['prenom']}'),
-                    new Text('${data['specialite']}'),
+                    new Text('${data['specialite']}',
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .body1
+                            .copyWith(fontWeight: FontWeight.bold)),
                     new Text(
-                        'Adresse\n${data['adresse']['numero']}, ${data['adresse']['rue']}'),
-                    new FlatButton(
-                        onPressed: () {},
-                        child: new Text('Réserver', style: utils.myStyle),
-                        color: utils.colorGlobal),
+                        '${data['adresse']['numero']}, ${data['adresse']['rue']}\n${data['adresse']['codePostal']}\n${data['adresse']['ville'].toString().toUpperCase()}'),
+                    new Padding(
+                        padding: EdgeInsets.only(top: 5.0),
+                        child: new FlatButton(
+                            onPressed: () {},
+                            child: new Text('Réserver',
+                                style: Theme
+                                    .of(context)
+                                    .textTheme
+                                    .body1
+                                    .copyWith(color: Colors.white70)),
+                            color: utils.colorGlobal)),
                   ])),
         ]));
   }

@@ -24,8 +24,7 @@ class _MedecinTabState extends State<MedecinTab> {
     final Size screen = MediaQuery.of(context).size;
 
     return new Container(
-        constraints: BoxConstraints(minHeight: screen.height),
-        color: Colors.transparent,
+        constraints: BoxConstraints(minHeight: screen.height, maxHeight: screen.height),
         child: new RefreshIndicator(
             onRefresh: () => _onRefresh(context),
             child: new Padding(
@@ -37,7 +36,6 @@ class _MedecinTabState extends State<MedecinTab> {
                       return ListView.builder(
                           itemCount: medecins != null ? medecins.length : 0,
                           itemBuilder: (BuildContext context, int index) {
-                            // print(medecins[index].toString());
                             return CardWidget(data: medecins[index]);
                           });
                     }))));
