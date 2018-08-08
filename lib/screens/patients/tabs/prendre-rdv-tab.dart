@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
-import '../../../components/header.dart';
+import '../../../components/layout-builder-widget.dart';
 
 class PrendreRdvTab extends StatefulWidget {
   @override
@@ -20,13 +20,6 @@ class _PrendreRdvTabState extends State<PrendreRdvTab> {
 
   @override
   Widget build(BuildContext context) {
-    return new ListView(
-      children: <Widget>[
-        new Header('assets/images/header.jpg'),
-        new Container(
-          child: new Text('Prendre un RDV'),
-        ),
-      ],
-    );
+    return LayoutBuilderWidget(title: 'PRENDRE RENDEZ-VOUS');
   }
 }

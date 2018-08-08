@@ -39,6 +39,10 @@ class Patient {
       : login = snapshot.value['login'],
         passwd = snapshot.value['passwd'];
 
+  Patient.fromJson(Map<String, dynamic> json)
+      : login = json['login'],
+        passwd = json['passwd'];
+
   toJson() {
     return {
       'nom': nom,

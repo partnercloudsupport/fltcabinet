@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../../components/CabinetTitle.dart';
-import '../../../components/header.dart';
+import 'package:validator/validator.dart';
+import '../../../components/ensureVisibleWhenFocus.dart';
 
 class ProfilTab extends StatefulWidget {
   @override
@@ -21,22 +20,34 @@ class _ProfilTabState extends State<ProfilTab> {
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      color: Colors.white,
-      child: new ListView(
-        children: <Widget>[
-          new Header('assets/images/header-profil.jpg'),
-          new Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-            child: new Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                CabinetTitle('Profil Utilisateur',),
-              ],
-            ),
+    final GlobalKey<FormState> _keyForm = new GlobalKey<FormState>();
+    final FocusNode _focusLogin = new FocusNode();
+    final FocusNode _focusNom = new FocusNode();
+    final FocusNode _focusPrenom = new FocusNode();
+
+    return new LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints viewportConstraints) {
+      print('BoxConstraints : $viewportConstraints');
+      return SingleChildScrollView(
+        child: new ConstrainedBox(
+          constraints: new BoxConstraints(
+            minHeight: viewportConstraints.maxHeight,
           ),
-        ],
-      ),
-    );
+          child: new IntrinsicHeight(
+            child: new Column(children: <Widget>[
+              new Container(
+                  // A fixed-height child.
+                  height: 50.0,
+                  child: new Text('PROFIL')),
+              new Expanded(
+                // A flexible child that will grow to fit the viewport but
+                // still be at least as big as necessary to fit its contents.
+                child: new Container(height: 80.0),
+              ),
+            ]),
+          ),
+        ),
+      );
+    });
   }
 }

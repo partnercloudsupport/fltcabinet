@@ -12,7 +12,6 @@ class CabinetTitle extends StatelessWidget {
       title,
       style: new TextStyle(
         fontSize: fontsize != null ? fontsize : 18.0,
-        
       ),
     );
   }

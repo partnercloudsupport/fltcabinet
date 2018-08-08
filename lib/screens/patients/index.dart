@@ -42,42 +42,29 @@ class TabBarPatientState extends State<TabBarPatient>
   Widget build(BuildContext context) {
     print('\nCOMMENCE DANS LA PARTIE PATIENT');
     return Scaffold(
-      appBar: PreferredSize(preferredSize: Size.fromHeight(0.0), child: new Container(),),
-      backgroundColor: utils.colorBase,
+      appBar: PreferredSize(
+          preferredSize: Size.fromHeight(0.0), child: new Container()),
+      // backgroundColor: utils.colorBase,
       body: navigator,
       bottomNavigationBar: new Material(
-        color: Colors.white70,
-        child: new TabBar(
-          indicatorColor: utils.colorGlobal,
-          controller: tabController,
-          tabs: <Widget>[
-            new Tab(
-              child: new Icon(
-                CabinetIcon.account,
-                color: utils.colorGlobal,
-              ),
-            ),
-            new Tab(
-              child: new Icon(
-                CabinetIcon.location,
-                color: utils.colorGlobal,
-              ),
-            ),
-            new Tab(
-              child: new Icon(
-                CabinetIcon.calendar,
-                color: utils.colorGlobal,
-              ),
-            ),
-            new Tab(
-              child: new Icon(
-                CabinetIcon.home,
-                color: utils.colorGlobal,
-              ),
-            ),
-          ],
-        ),
-      ),
+          color: Colors.white70,
+          child: new TabBar(
+              indicatorColor: utils.colorGlobal,
+              controller: tabController,
+              tabs: <Widget>[
+                new Tab(
+                    child: new Icon(CabinetIcon.account,
+                        color: utils.colorGlobal)),
+                new Tab(
+                    child: new Icon(CabinetIcon.location,
+                        color: utils.colorGlobal)),
+                new Tab(
+                    child: new Icon(CabinetIcon.calendar,
+                        color: utils.colorGlobal)),
+                new Tab(
+                    child:
+                        new Icon(CabinetIcon.home, color: utils.colorGlobal)),
+              ])),
     );
   }
 

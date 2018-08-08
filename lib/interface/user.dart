@@ -12,6 +12,11 @@ class User {
         passwd = snapshot.value['passwd'],
         idProfil = snapshot.value['idProfil'];
 
+  User.fromJson(Map<String, dynamic> json)
+      : login = json['login'],
+        passwd = json['passwd'],
+        idProfil = json['idProfil'];
+
   toJson() {
     return {
       "login": login,
@@ -19,5 +24,4 @@ class User {
       "idProfil": idProfil,
     };
   }
-
 }
