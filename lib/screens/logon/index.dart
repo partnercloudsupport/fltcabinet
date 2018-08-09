@@ -48,9 +48,12 @@ class _LogOnState extends State<LogOn> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    new CircleAvatar(
-                        child: new Image.asset('assets/images/medecin.png'),
-                        radius: 75.0),
+                    new Container(
+                        width: MediaQuery.of(context).size.height / 4,
+                        height: MediaQuery.of(context).size.height / 4,
+                        child: new CircleAvatar(
+                            backgroundImage:
+                                AssetImage('assets/images/medecin.png'))),
                     new Padding(padding: EdgeInsets.only(bottom: 10.0)),
                     new EnsureVisibleWhenFocused(
                         focusNode: _focusNodeLogin,

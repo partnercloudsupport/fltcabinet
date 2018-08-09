@@ -32,9 +32,9 @@ bool isUser(String login, String passwd) {
 
 List<User> listUser() {
   return List<User>.generate(
-    10,
-    (index) => User('Identifiant $index', 'Mot de passe : $index', index),
-  );
+      10,
+      (index) =>
+          User('Identifiant $index', 'Mot de passe : $index'));
 }
 
 String onVerifyUser(String login, String passwd) {
@@ -42,7 +42,8 @@ String onVerifyUser(String login, String passwd) {
 }
 
 bool addUser(String login, String passwd, int idProfil) {
-  User user = new User(login, passwd, idProfil);
+  // User user = new User(login, passwd, id: idProfil);
+  User user;
   bool added = false;
   final DocumentReference _userRef =
       Firestore.instance.collection('users').document(login.toString());

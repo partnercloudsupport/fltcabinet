@@ -15,7 +15,7 @@ class AppCabinet extends StatefulWidget {
   }
 }
 
-class _AppCabinetState extends State<AppCabinet> {
+class _AppCabinetState extends State<AppCabinet> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,7 +31,11 @@ class _AppCabinetState extends State<AppCabinet> {
       },
       home: Scaffold(
         floatingActionButton: new FloatingActionButton(
-            onPressed: () {}, child: new Icon(CabinetIcon.subscribe), elevation: 0.0, isExtended: true, backgroundColor: utils.colorGlobal,),
+            onPressed: () {},
+            child: new Icon(CabinetIcon.subscribe),
+            elevation: 0.0,
+            isExtended: true,
+            backgroundColor: utils.colorGlobal),
         appBar: PreferredSize(
             preferredSize: Size.fromHeight(0.0), child: new Container()),
         body: LogOn(),

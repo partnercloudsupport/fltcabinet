@@ -2,8 +2,10 @@ name: cabinet
 description: A new Flutter project.
 
 dependencies:
-  cupertino_icons: ^0.1.2
   cloud_firestore:
+  cupertino_icons: ^0.1.2
+  device_info: 0.2.1
+  dio: any
   firebase: ^4.3.0
   firebase_auth: ^0.5.11
   firebase_core:
@@ -11,10 +13,13 @@ dependencies:
   flutter:
     sdk: flutter
   google_sign_in: ^3.0.4
+  http: any
   image_picker: ^0.4.4
+  json: any
   mlkit: ^0.2.2
-  http:
+  path_provider: any
   rxdart: "^0.18.1"
+  sqflite: any
   validator: "^0.0.7"
   # english_words: ^3.1.0
 

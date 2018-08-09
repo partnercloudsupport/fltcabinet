@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../../utils/utils.dart' as utils;
-import 'package:cabinet/patients/image.dart';
-import 'package:cabinet/patients/video.dart';
 import 'package:cabinet/interface/choice.dart' as choice;
 
 class ProfilePatient extends StatefulWidget {
@@ -53,9 +51,9 @@ class _ProfilePatientState extends State<ProfilePatient> {
 
   _selected(choice.Choice choice) {
     if (choice.title == 'Photo') {
-      _loadBody(image());
+      // _loadBody(image());
     } else {
-      _loadBody(video());
+      // _loadBody(video());
     }
   }
 

@@ -5,20 +5,13 @@ import "package:http/http.dart" as http;
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-GoogleSignIn _googleSignIn = new GoogleSignIn(
-  scopes: <String>[
-    'email',
-    'https://www.googleapis.com/auth/contacts.readonly',
-  ],
-);
+GoogleSignIn _googleSignIn = new GoogleSignIn(scopes: <String>[
+  'email',
+  'https://www.googleapis.com/auth/contacts.readonly',
+]);
 
 void main() {
-  runApp(
-    new MaterialApp(
-      title: 'Google Sign In',
-      home: new AuthetifyGoogle(),
-    ),
-  );
+  runApp(new MaterialApp(title: 'Google Sign In', home: new AuthetifyGoogle()));
 }
 
 class AuthetifyGoogle extends StatefulWidget {
@@ -75,9 +68,8 @@ class AuthetifyGoogleState extends State<AuthetifyGoogle> {
   String _pickFirstNamedContact(Map<String, dynamic> data) {
     final List<dynamic> connections = data['connections'];
     final Map<String, dynamic> contact = connections?.firstWhere(
-      (dynamic contact) => contact['names'] != null,
-      orElse: () => null,
-    );
+        (dynamic contact) => contact['names'] != null,
+        orElse: () => null);
     if (contact != null) {
       final Map<String, dynamic> name = contact['names'].firstWhere(
         (dynamic name) => name['displayName'] != null,
@@ -105,50 +97,35 @@ class AuthetifyGoogleState extends State<AuthetifyGoogle> {
   Widget _buildBody() {
     if (_currentUser != null) {
       return new Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          new ListTile(
-            leading: new GoogleUserCircleAvatar(
-              identity: _currentUser,
-            ),
-            title: new Text(_currentUser.displayName),
-            subtitle: new Text(_currentUser.email),
-          ),
-          const Text("Signed in successfully."),
-          new Text(_contactText),
-          new RaisedButton(
-            child: const Text('SIGN OUT'),
-            onPressed: _handleSignOut,
-          ),
-          new RaisedButton(
-            child: const Text('REFRESH'),
-            onPressed: _handleGetContact,
-          ),
-        ],
-      );
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            new ListTile(
+                leading: new GoogleUserCircleAvatar(identity: _currentUser),
+                title: new Text(_currentUser.displayName),
+                subtitle: new Text(_currentUser.email)),
+            const Text("Signed in successfully."),
+            new Text(_contactText),
+            new RaisedButton(
+                child: const Text('SIGN OUT'), onPressed: _handleSignOut),
+            new RaisedButton(
+                child: const Text('REFRESH'), onPressed: _handleGetContact)
+          ]);
     } else {
       return new Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          const Text("You are not currently signed in."),
-          new RaisedButton(
-            child: const Text('SIGN IN'),
-            onPressed: _handleSignIn,
-          ),
-        ],
-      );
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            const Text("You are not currently signed in."),
+            new RaisedButton(
+                child: const Text('SIGN IN'), onPressed: _handleSignIn)
+          ]);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: new AppBar(
-          title: const Text('Google Sign In'),
-        ),
+        appBar: new AppBar(title: const Text('Google Sign In')),
         body: new ConstrainedBox(
-          constraints: const BoxConstraints.expand(),
-          child: _buildBody(),
-        ));
+            constraints: const BoxConstraints.expand(), child: _buildBody()));
   }
 }

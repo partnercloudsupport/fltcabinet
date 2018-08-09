@@ -70,32 +70,31 @@ class TabBarPatientState extends State<TabBarPatient>
 
   Navigator _getNavigator(String initialroot) {
     return new Navigator(
-      key: navKey,
-      initialRoute: initialroot,
-      onGenerateRoute: (RouteSettings setting) {
-        print('\nSETTING IN _getNavigator() setting : $setting');
-        switch (setting.name) {
-          case '/':
-            return new MaterialPageRoute(
-                builder: (_) => ProfilTab(), settings: setting);
-          case '/monprofil':
-            return new MaterialPageRoute(
-                builder: (_) => ProfilTab(), settings: setting);
-          case '/0':
-            return new MaterialPageRoute(
-                builder: (_) => ProfilTab(), settings: setting);
-          case '/1':
-            return new MaterialPageRoute(
-                builder: (_) => MedecinTab(), settings: setting);
-          case '/2':
-            return new MaterialPageRoute(
-                builder: (_) => PrendreRdvTab(), settings: setting);
-          case '/3':
-            return new MaterialPageRoute(
-                builder: (_) => ParametreTab(), settings: setting);
-        }
-      },
-    );
+        key: navKey,
+        initialRoute: initialroot,
+        onGenerateRoute: (RouteSettings setting) {
+          print('\nSETTING IN _getNavigator() setting : $setting');
+          switch (setting.name) {
+            case '/':
+              return new MaterialPageRoute(
+                  builder: (_) => ProfilTab(), settings: setting);
+            case '/monprofil':
+              return new MaterialPageRoute(
+                  builder: (_) => ProfilTab(), settings: setting);
+            case '/0':
+              return new MaterialPageRoute(
+                  builder: (_) => ProfilTab(), settings: setting);
+            case '/1':
+              return new MaterialPageRoute(
+                  builder: (_) => MedecinTab(), settings: setting);
+            case '/2':
+              return new MaterialPageRoute(
+                  builder: (_) => PrendreRdvTab(), settings: setting);
+            case '/3':
+              return new MaterialPageRoute(
+                  builder: (_) => ParametreTab(), settings: setting);
+          }
+        });
   }
 }
 
@@ -114,7 +113,7 @@ class MyTabController extends TabController {
 
   @override
   void animateTo(int value,
-      {Duration duration: kTabScrollDuration, Curve curve: Curves.ease}) {
+      {Duration duration: kTabScrollDuration, Curve curve: Curves.easeIn}) {
     if (value != 4) {
       this.callBack(value);
     }
