@@ -1,9 +1,11 @@
-.DS_Store
 .dart_tool/
-
+.flutter-plugins
+.idea
 .packages
 .pub/
+.vscode
 
+android/app/google-services.json
+android/local.properties
+android/.grandle/
 build/
-
-.flutter-plugins
