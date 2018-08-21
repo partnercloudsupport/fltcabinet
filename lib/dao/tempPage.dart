@@ -9,9 +9,9 @@ Future<void> main() async {
   final FirebaseApp app = await FirebaseApp.configure(
     name: 'db2',//cabinet-8dd74
     options: const FirebaseOptions(
-      databaseURL: 'https://cabinet-8dd74.firebaseio.com',
-      apiKey: 'AIzaSyBxtWzIQtIsYexqOw9hlKZq-TbDT-gaQbY',
-      googleAppID: '1:577939527966:android:e3a7d1641ebf8ef4',
+      databaseURL: 'databaseURL',
+      apiKey: 'AapiKey',
+      googleAppID: 'googleAppID',
     ),
   );
   runApp(TempPage(app: app));
